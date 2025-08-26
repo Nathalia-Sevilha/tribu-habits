@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :habits
   resources :communities, only: :show do
-    resources :posts, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :posts, only: [ :new, :create, :edit, :update, :destroy ] do
+      resources :comments, only: [:destroy, :create]
+    end
   end
 end
