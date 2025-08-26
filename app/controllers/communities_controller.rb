@@ -8,6 +8,7 @@ class CommunitiesController < ApplicationController
 
   def show
     authorize @community
+    @posts = Post.where(community: @community)
   end
 
   private
