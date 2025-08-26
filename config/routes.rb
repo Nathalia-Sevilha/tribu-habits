@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root "habits#index"
 
   resources :habits
-  resources :communities, only: :show do
-    resources :posts, only: [ :index, :new, :create, :edit, :update, :destroy ]
+  resources :communities, only: [:index, :show] do
+    resources :posts
   end
 end
