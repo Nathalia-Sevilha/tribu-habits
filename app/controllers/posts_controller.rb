@@ -34,7 +34,7 @@ before_action :set_post, only: [ :show, :edit, :update, :destroy ]
     if @post.update(post_params)
       redirect_to @post, notice: "Post was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
