@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import "colors";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Titles font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Mona Sans', sans-serif;
+}
+
+.btn {}
+
+.btn:hover {}
