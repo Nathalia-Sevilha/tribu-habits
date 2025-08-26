@@ -1,0 +1,35 @@
+<%= simple_form_for(@habit) do |form| %>
+  <% if habit.errors.any? %>
+    <div>
+      <h2><%= pluralize(habit.errors.count, "error") %> :</h2>
+      <ul>
+        <% habit.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.input :title, as: :select, collection: Community.pluck(:title), label: "Title" %>
+  </div>
+  <div>
+    <%= form.input :description, label: "Description" %>
+  </div>
+  <div>
+    <%= form.input :streak, label: "Streak" %>
+  </div>
+  <%= form.input :color, as: :select,
+    collection: [
+      ["Light Blue", "ACDFEB"],
+      ["Pale Green", "C1F4DC"],
+      ["Pastel Yellow", "E4ED97"],
+      ["Light Red", "F09393"],
+      ["Pastel Pink", "F5B6F3"],
+      ["Salmon Pink", "FFC7D0"],
+      ["Orange Yellow", "FFDA9B"]
+    ],
+    label: "Color" %>
+  <div>
+    <%= form.button :submit %>
+  </div>
+<% end %>

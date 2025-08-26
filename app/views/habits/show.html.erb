@@ -1,1 +1,5 @@
-<h1>this is the show habit</h1>
+<h1><%= @habit.title %></h1>
+<p><%= @habit.description %></p>
+<p>Streak : <%= @habit.streak %></p>
+<%= link_to "Modify", edit_habit_path(@habit) %> |
+<%= link_to "Back", habits_path %>

@@ -1,1 +1,11 @@
-<h1 >this is the index habit</h1>
+<h1>Habits List</h1>
+<%= link_to "new Habit", new_habit_path %>
+<ul>
+  <% @habits.each do |habit| %>
+    <li>
+      <%= link_to habit.title, habit_path(habit) %>
+      (<%= link_to "Edit", edit_habit_path(habit) %> |
+<%= link_to "Delete", habit_path(habit), data: { turbo_method: :delete, turbo_confirm: "Delete ?" } %>)
+    </li>
+  <% end %>
+</ul>
