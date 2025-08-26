@@ -21,7 +21,7 @@ before_action :set_post, only: [ :show, :edit, :update, :destroy ]
     if @post.save
       redirect_to @post, notice: "Post was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
