@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_08_26_122654) do
+ActiveRecord::Schema[7.2].define(version: 2025_08_26_133134) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,17 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_26_122654) do
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.bigint "community_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_posts_on_community_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -66,4 +77,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_26_122654) do
   add_foreign_key "day_habits", "habits"
   add_foreign_key "habits", "communities"
   add_foreign_key "habits", "users"
+  add_foreign_key "posts", "communities"
+  add_foreign_key "posts", "users"
 end
