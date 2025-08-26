@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  streak: 1
+  description: MyString
+  color: MyString
+  user: one
+  community: one
+
+two:
+  title: MyString
+  streak: 1
+  description: MyString
+  color: MyString
+  user: two
+  community: two
