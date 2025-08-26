@@ -41,7 +41,7 @@ before_action :set_post, only: [ :show, :edit, :update, :destroy ]
   def destroy
     authorize @post
     @post.destroy
-    redirect_to posts_path, notice: "Post was successfully deleted."
+    redirect_to posts_path, notice: "Post was successfully deleted.", status: :see_other
   end
 
   private
