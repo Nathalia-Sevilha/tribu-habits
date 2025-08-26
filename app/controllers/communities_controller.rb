@@ -1,3 +1,6 @@
 class CommunitiesController < ApplicationController
-  def show;end
+  def show
+    @community = Community.find(params[:id])
+    authorize @community
+  end
 end
