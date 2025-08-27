@@ -1,9 +1,9 @@
-<div class="d-flex justify-content-center align-items-center vh-100">
+<div class="d-flex justify-content-center vh-100 mt-5 p-2">
   <div class="row">
     <div class="col-12 mx-auto">
-      <div class="container-card text-center p-4">
+      <div class="container-card text-center">
 
-        <div>
+        <div class="my-3">
           <%= image_tag "habits.png", alt: "Habits", class: "card-img mb-3 mx-auto" %>
         </div>
 
@@ -13,10 +13,10 @@
       </div>
 
   <div>
-    <%= link_to "Register", new_user_registration_path, class: "btn btn-small my-1" %>
+    <%= link_to "Login", new_user_session_path, class: "btn btn-small my-1" %>
   </div>
   <div>
-    <%= link_to "Login", new_user_session_path, class: "login-link" %>
+    <%= link_to "Register", new_user_registration_path, class: "login-link" %>
   </div>
       </div>
     </div>
