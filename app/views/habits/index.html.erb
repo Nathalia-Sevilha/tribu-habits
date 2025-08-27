@@ -4,8 +4,6 @@
   <% @habits.each do |habit| %>
     <li>
       <%= link_to habit.title, habit_path(habit) %>
-      (<%= link_to "Edit", edit_habit_path(habit) %> |
-<%= link_to "Delete", habit_path(habit), data: { turbo_method: :delete, turbo_confirm: "Delete ?" } %>)
     </li>
   <% end %>
 </ul>
