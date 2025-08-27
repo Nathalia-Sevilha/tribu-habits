@@ -10,9 +10,6 @@
     </div>
   <% end %>
   <div>
-    <%= form.input :title, as: :select, collection: Community.pluck(:title), label: "Title" %>
-  </div>
-  <div>
     <%= form.input :description, label: "Description" %>
   </div>
   <%= form.input :color, as: :select,
