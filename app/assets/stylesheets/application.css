@@ -51,6 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-small {
   padding: 10px 25px;
+  width: 128px;
   border: none;
   border-radius: 12px;
   background: linear-gradient(90deg, #ff9966, #ffcc33);
