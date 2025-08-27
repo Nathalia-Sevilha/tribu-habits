@@ -91,3 +91,11 @@ comments = [
 
 comments.each { |comment| Comment.create!(comment) }
 puts "✅ Created #{Comment.count} comments"
+
+puts "Seeding days..."
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+days.each do |day|
+  Day.find_or_create_by!(name: day)
+end
+puts "✅ Created #{Day.count} days"
