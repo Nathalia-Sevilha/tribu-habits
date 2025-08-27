@@ -1,3 +1,28 @@
-<h1>post details</h1>
-<p><%= @post.title %></p>
-<p><%= @post.content %></p>
+
+<div class=" comminity_style">
+
+  <section class="p-2 shadow-sm bg-white" >
+    <h1><%= @post.title %></h1>
+    <p><%= @post.content %></p>
+  </section>
+
+
+  <section class="container" >
+    <% @comments.each do |comment| %>
+        <div class="card_style">
+          <div class="d-flex flex-row justify-content-between mb-2">
+            <div class="d-flex flex-row justify-content-start align-items-center">
+              <div style="border-radius: 50%; height: 40px; width: 40px; background: var(--orange);"></div>
+              <h5  class="m-0 mx-2"><%= comment.user.username %> <%# here should be post writer username %></h5>
+            </div>
+            <small class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</small>
+          </div>
+          <p><%=comment.content %></p>
+        </div>
+    <% end %>
+  </section>
+
+
+
+
+</div>
