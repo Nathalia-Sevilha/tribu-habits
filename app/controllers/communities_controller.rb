@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-  before_action :set_community, only: [ :index, :show ]
+  before_action :set_community, only: [ :show ]
 
   def index
     @communities = policy_scope(Community)
