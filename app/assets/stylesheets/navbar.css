@@ -1,4 +1,4 @@
-.navbar {
+.navbar-app {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -12,7 +12,7 @@
   z-index: 100;
 }
 
-.navbar a {
+.navbar-app a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@
   gap: 4px;
 }
 
-.navbar img, .new-habit-button img  {
+.navbar-app img, .new-habit-button img  {
   width: 24px;
   height: 24px;
 }
@@ -51,6 +51,6 @@
   height: 100%;
 }
 
-.navbar div:nth-child(2) {
+.navbar-app div:nth-child(2) {
   margin-right: 40px;
 }
