@@ -14,9 +14,9 @@
  *= require_self
  */
 
-
 @import "colors";
 @import "navbar";
+@import "components/habits";
 
 * {
   margin: 0;
@@ -34,7 +34,12 @@ body {
 }
 
 /* Titles font */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Poppins", sans-serif;
 }
 
@@ -62,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hover effect */
 .btn-small:hover {
   background: linear-gradient(90deg, #ffcc33, #ff9966);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .login-link {
@@ -71,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-img {
-  max-width: 200px;  /* adjust size */
+  max-width: 200px; /* adjust size */
   height: auto;
   margin: 0 auto;
   display: block;

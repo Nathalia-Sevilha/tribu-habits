@@ -1,9 +1,18 @@
-<h1>Habits List</h1>
-<%= link_to "new Habit", new_habit_path %>
-<ul>
-  <% @habits.each do |habit| %>
-    <li>
-      <%= link_to habit.title, habit_path(habit) %>
-    </li>
+<div class="habits-container">
+  <h1 class="habits-title">My Habits</h1>
+  
+  <%= link_to new_habit_path, class: "new-habit-btn" do %>
+    <i class="fas fa-plus"></i> New Habit
   <% end %>
-</ul>
+
+  <ul class="habits-list">
+    <% @habits.each do |habit| %>
+      <li>
+        <%= link_to habit_path(habit) do %>
+          <span style="color: #<%= habit.color %>">●</span>
+          <%= habit.title %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
