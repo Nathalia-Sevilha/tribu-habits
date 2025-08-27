@@ -17,6 +17,8 @@
 
 @import "colors";
 @import "community";
+@import "navbar";
+
 
 * {
   margin: 0;
@@ -25,25 +27,45 @@
 }
 
 body {
-  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  padding-bottom: 73px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Titles font */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Mona Sans', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.btn {}
+.container-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  min-width: 300px;
+  width: 100%;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
 
+.btn-small {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ff9966, #ffcc33);
+  color: black;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
 
-.btn:hover {}
-
+/* Hover effect */
+.btn-small:hover {
+  background: linear-gradient(90deg, #ffcc33, #ff9966);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
 .card_style {
   background-color: #ffffff;
@@ -52,4 +74,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 16px;
   margin: 12px 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+.login-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card-img {
+  max-width: 200px;  /* adjust size */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.bg-gray {
+  background-color: #f6f6f6;
 }
