@@ -7,6 +7,8 @@ before_action :set_post, only: [ :show, :edit, :update, :destroy ]
 
   def show
     authorize @post
+    @comments = @post.comments.includes(:user).order(created_at: :asc)
+    @comment = Comment.new
   end
 
   def new

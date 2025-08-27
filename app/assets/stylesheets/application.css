@@ -16,7 +16,9 @@
 
 
 @import "colors";
+@import "community";
 @import "navbar";
+
 
 * {
   margin: 0;
@@ -64,6 +66,14 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(90deg, #ffcc33, #ff9966);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
+.card_style {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 
 .login-link {
   text-decoration: none;
