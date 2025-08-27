@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <div>
+    <%= link_to habits_path do %>
+      <%= image_tag "home.svg" %>
+      <span>Home</span>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to communities_path do %>
+      <%= image_tag "tribe.svg" %>
+      <span>Tribe</span>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to root_path do %>
+      <%= image_tag "stars.svg" %>
+      <span>AI</span>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to root_path do %>
+      <%= image_tag "user.svg" %>
+      <span>Profile</span>
+    <% end %>
+  </div>
+
+  <div class="new-habit-button">
+    <%= link_to new_habit_path do %>
+      <%= image_tag "plus.svg", alt: "New habit icon" %>
+    <% end %>
+  </div>
+</nav>
