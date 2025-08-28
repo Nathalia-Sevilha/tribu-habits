@@ -50,16 +50,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-small {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px 25px;
   width: 128px;
-  height: 40px;
   border: none;
-  border-radius: 8px;
-  background: var(--color-secondary);
-  color: #fff;
-  font-size: 15px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ff9966, #ffcc33);
+  color: black;
+  font-size: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;

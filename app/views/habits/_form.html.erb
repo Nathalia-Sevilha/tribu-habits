@@ -1,35 +1,32 @@
 <%= simple_form_for(@habit) do |form| %>
-  <% if habit.errors.any? %>
-    <div>
-      <h2><%= pluralize(habit.errors.count, "error") %> :</h2>
-      <ul>
-        <% habit.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+  <div class="form-fields">
+    <div class="form-group">
+      <%= form.input :title,
+          as: :select,
+          collection: Community.pluck(:title),
+          label: false,
+          prompt: "Select/create new habit",
+          input_html: { class: 'form-select' } %>
     </div>
-  <% end %>
-  <div>
-    <%= form.input :title, as: :select, collection: Community.pluck(:title), label: "Title" %>
+    <div class="form-group">
+      <%= form.input :description,
+          label: false,
+          placeholder: "Add a description",
+          input_html: { class: 'form-input' } %>
+    </div>
+    <div class="form-group color-section" data-controller="color-picker">
+      <p class="color-label">Pick a color for your habit</p>
+      <div class="color-choices">
+        <% %w[ F09393 F5B6F3 FFC7D0 FFDA9B E4ED97 C1F4DC ACDFEB ].each do |color| %>
+          <div
+            class="color-choice <%= 'selected' if @habit.color == color %>"
+            data-color="<%= color %>"
+            style="background: #<%= color %>">
+          </div>
+        <% end %>
+      </div>
+      <%= form.input :color, as: :hidden %>
+    </div>
   </div>
-  <div>
-    <%= form.input :description, label: "Description" %>
-  </div>
-  <div>
-    <%= form.input :streak, label: "Streak" %>
-  </div>
-  <%= form.input :color, as: :select,
-    collection: [
-      ["Light Blue", "ACDFEB"],
-      ["Pale Green", "C1F4DC"],
-      ["Pastel Yellow", "E4ED97"],
-      ["Light Red", "F09393"],
-      ["Pastel Pink", "F5B6F3"],
-      ["Salmon Pink", "FFC7D0"],
-      ["Orange Yellow", "FFDA9B"]
-    ],
-    label: "Color" %>
-  <div>
-    <%= form.button :submit %>
-  </div>
+  <%= form.button :submit, "Create Habit", class: "form-submit-btn" %>
 <% end %>

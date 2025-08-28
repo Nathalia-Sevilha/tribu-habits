@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_08_26_140854) do
+ActiveRecord::Schema[7.2].define(version: 2025_08_27_152003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_26_140854) do
 
   create_table "habits", force: :cascade do |t|
     t.string "title"
-    t.integer "streak"
+    t.integer "streak", default: 0
     t.string "description"
     t.string "color"
     t.bigint "user_id", null: false

@@ -1,0 +1,163 @@
+// Variables
+$orange: #ff9f1c;
+$black: #333333;
+$white: #ffffff;
+$grey-light: #f8f9fa;
+$success: #00c853;
+
+// Layout
+.habits-container {
+  padding: 1.5rem 1rem;
+  background: $white;
+  min-height: 100vh;
+}
+
+// Index page components
+.header {
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .date {
+    color: rgba($black, 0.6);
+  }
+}
+
+.progress-card {
+  background: linear-gradient(90deg, $orange, lighten($orange, 10%));
+  border-radius: 24px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  color: $white;
+}
+
+// Habit cards
+.habits-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.habit-card {
+  flex: 1;
+  border-radius: 16px;
+  padding: 1rem;
+  position: relative;
+  background-color: var(--habit-color);
+
+  .card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $black;
+  }
+}
+
+// Updated toggle styles
+.checkbox-container {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  width: 48px;
+}
+
+.checkbox-input {
+  display: none;
+
+  &:checked + .checkbox-label {
+    background: $success;
+    border-color: $success;
+
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: $white;
+  border: 2px solid rgba($black, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:after {
+    content: "✓";
+    color: $white;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}
+
+// Streak display
+.habit-streak {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba($black, 0.8);
+
+  i {
+    color: $orange;
+    font-size: 1.2rem;
+  }
+}
+
+// Form elements for new/edit
+.color-choices {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.color-choice {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 3px solid transparent;
+
+  &.selected {
+    border: 3px solid $black;
+  }
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: $orange;
+  color: $white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+}
