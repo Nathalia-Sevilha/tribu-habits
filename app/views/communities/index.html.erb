@@ -1,8 +1,6 @@
-
- <%= render partial: "shared/header",  locals: { zone: @community, title: "Your Community"}  %>
-  <% @communities.each do |community| %>
+<%= render partial: "shared/header",  locals: { zone: @community, title: "Your Community"}  %>
+<% @communities.each do |community| %>
   <div class="community_card text-center m-3">
-  <p><%= link_to community.title, community_path(community) %></p>
+    <p><%= link_to community.title, community_path(community) %></p>
   </div>
-  <% end %>
 <% end %>

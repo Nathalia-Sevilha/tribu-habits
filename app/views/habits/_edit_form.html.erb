@@ -30,6 +30,17 @@
         </div>
       </div>
     </div>
+    <div class="form-group">
+      <p>Choose the days for this habit:</p>
+      <% Day.all.each do |day| %>
+        <%= form.input :day_ids,
+            as: :boolean,
+            label: day.name,
+            multiple: true,
+            checked: @habit.days.include?(day),
+            input_html: { name: "habit[day_ids][]", value: day.id } %>
+      <% end %>
+    </div>
     <div class="form-actions">
       <%= form.button :submit, "Update Habit", class: "habit-btn edit" %>
       <%= link_to habits_path, class: "habit-btn back" do %>
