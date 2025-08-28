@@ -21,6 +21,7 @@ gem "ruby_llm"
 gem "devise"
 gem "pundit"
 
+gem "ruby_llm"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
