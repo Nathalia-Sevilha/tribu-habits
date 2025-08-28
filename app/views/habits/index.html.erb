@@ -1,41 +1,6 @@
 <div class="habits-container">
   <div class="header">
-    <h1>Hello <%= current_user.username %>! :wave:</h1>
-    <div class="date">Wednesday, August 27</div>
-  </div>
-  <div class="progress-card">
-    <h2>Today's Progress</h2>
-    <div class="progress-bar">2/4</div>
-    <p class="progress-text">2 habits left to go!</p>
-  </div>
-  <ul class="habits-list">
-    <% @habits.each do |habit| %>
-      <li class="habit-item">
-        <div class="habit-card" style="--habit-color: #<%= habit.color %>20">
-          <%= link_to "", habit_path(habit), class: "card-link" %>
-          <div class="habit-card-content">
-            <h3 class="habit-card-title"><%= habit.title %></h3>
-            <div class="habit-streak">
-              <i class="fas fa-fire"></i>
-              <%= habit.streak %>
-            </div>
-          </div>
-        </div>
-        <div class="checkbox-container">
-          <input
-            type="checkbox"
-            id="habit-<%= habit.id %>"
-            class="checkbox-input"
-            <%= 'checked'%>>
-          <label for="habit-<%= habit.id %>" class="checkbox-label"></label>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<div class="habits-container">
-  <div class="header">
-    <h1>Hello <%= current_user.username %>! :wave:</h1>
+    <h1>Hello <%= current_user.username %>!</h1>
     <div class="date">Wednesday, August 27</div>
   </div>
   <div class="progress-card">
