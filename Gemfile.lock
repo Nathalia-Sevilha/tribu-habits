@@ -110,9 +110,7 @@ GEM
     drb (2.2.3)
     erb (5.0.2)
     erubi (1.13.1)
-<<<<<<< HEAD
     ffi (1.17.2-arm64-darwin)
-=======
     event_stream_parser (1.0.0)
     faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
@@ -124,7 +122,6 @@ GEM
       net-http (>= 0.5.0)
     faraday-retry (2.3.2)
       faraday (~> 2.0)
->>>>>>> 2cae47171fdf92bcf2dbf8497af22275ceeb5cd1
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
