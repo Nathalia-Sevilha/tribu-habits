@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
   before_action :find_post, only: :create
   before_action :set_context, only: [:new, :create, :destroy]
 
-  skip_after_action :verify_authorized, only: [:new, :create, :destroy]
 
   def new
     @comment   = @post.comments.build
@@ -11,9 +10,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.post = @post
-    @comment.user = current_user
+    @comment = @post.comments.build(comment_params.merge(user: current_user))
+    authorize @comment
+
     if @comment.save
       redirect_to community_post_path(@community, @post)
     else
@@ -25,6 +24,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    authorize @comment
     @comment.destroy
     redirect_to post_path(@post), notice: "Comment was deleted."
   end
