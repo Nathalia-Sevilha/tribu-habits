@@ -376,11 +376,8 @@ DEPENDENCIES
   pundit
   rails (~> 7.2.2, >= 7.2.2.2)
   rubocop-rails-omakase
-<<<<<<< HEAD
   sassc-rails
-=======
   ruby_llm
->>>>>>> 2cae47171fdf92bcf2dbf8497af22275ceeb5cd1
   selenium-webdriver
   simple_form
   sprockets-rails
