@@ -1,27 +1,29 @@
 class PostsController < ApplicationController
 before_action :set_post, only: [ :show, :edit, :update, :destroy ]
+before_action :set_community, only: [:index, :new, :create]
 
   def index
     @posts = policy_scope(Post)
   end
 
   def show
-    authorize @post
     @comments = @post.comments.includes(:user).order(created_at: :asc)
     @comment = Comment.new
+    authorize @post
+
   end
 
   def new
-    @post = Post.new
+    @post = @community.posts.build
     authorize @post
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = @community.posts.build(post_params)
     @post.user = current_user
     authorize @post
     if @post.save
-      redirect_to @post, notice: "Post was successfully created."
+      redirect_to community_path(@community)
     else
       render :new, status: :unprocessable_entity
     end
@@ -50,6 +52,10 @@ before_action :set_post, only: [ :show, :edit, :update, :destroy ]
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_community
+    @community = Community.find_by(id: params[:community_id])
   end
 
   def post_params
