@@ -121,6 +121,7 @@ GEM
       net-http (>= 0.5.0)
     faraday-retry (2.3.2)
       faraday (~> 2.0)
+    ffi (1.17.2-arm64-darwin)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
@@ -293,6 +294,14 @@ GEM
       marcel (~> 1.0)
       zeitwerk (~> 2)
     rubyzip (3.0.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     securerandom (0.4.1)
     selenium-webdriver (4.35.0)
       base64 (~> 0.2)
@@ -315,6 +324,7 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.7)
     thor (1.4.0)
+    tilt (2.6.1)
     timeout (0.4.3)
     turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
@@ -367,6 +377,7 @@ DEPENDENCIES
   rails (~> 7.2.2, >= 7.2.2.2)
   rubocop-rails-omakase
   ruby_llm
+  sassc-rails
   selenium-webdriver
   simple_form
   sprockets-rails

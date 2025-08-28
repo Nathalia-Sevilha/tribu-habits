@@ -1,0 +1,40 @@
+<div class="habit-container">
+  <%= simple_form_for(@habit) do |form| %>
+    <% if habit.errors.any? %>
+      <div class="form-errors">
+        <h2><%= pluralize(habit.errors.count, "error") %></h2>
+        <ul>
+          <% habit.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-fields">
+      <div class="form-group">
+        <%= form.input :description,
+            label: "Description",
+            input_html: { class: 'form-input' } %>
+      </div>
+      <div class="form-group" data-controller="color-picker">
+        <label>Color</label>
+        <%= form.input :color, as: :hidden %>
+        <div class="color-choices">
+          <% %w[ F09393 F5B6F3 FFC7D0 FFDA9B E4ED97 C1F4DC ACDFEB ].each do |color| %>
+            <div
+              class="color-choice <%= 'selected' if @habit.color == color %>"
+              data-color="<%= color %>"
+              style="background: #<%= color %>"
+            ></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= form.button :submit, "Update Habit", class: "habit-btn edit" %>
+      <%= link_to habits_path, class: "habit-btn back" do %>
+        <i class="fas fa-arrow-left"></i> Back
+      <% end %>
+    </div>
+  <% end %>
+</div>

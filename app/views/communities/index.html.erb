@@ -1,6 +1,8 @@
-<h1>Your communities</h1>
-<% @communities.each do |community| %>
-  <%= link_to community_path(community), class: "community_card text-center m-3" do %>
-    <p><%= community.title %></p>
+
+ <%= render partial: "shared/header",  locals: { zone: @community, title: "Your Community"}  %>
+  <% @communities.each do |community| %>
+  <div class="community_card text-center m-3">
+  <p><%= link_to community.title, community_path(community) %></p>
+  </div>
   <% end %>
 <% end %>

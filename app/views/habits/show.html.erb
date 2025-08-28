@@ -1,5 +1,26 @@
-<h1><%= @habit.title %></h1>
-<p><%= @habit.description %></p>
-<p>Streak : <%= @habit.streak %></p>
-<%= link_to "Modify", edit_habit_path(@habit) %> |
-<%= link_to "Back", habits_path %>
+<div class="habit-container">
+  <h1 class="habit-title"><%= @habit.title %></h1>
+
+  <div class="habit-info">
+    <p><%= @habit.description %></p>
+    <p class="habit-streak">
+      <i class="fas fa-fire"></i> Streak: <%= @habit.streak %>
+    </p>
+  </div>
+
+  <div class="habit-actions">
+    <%= link_to edit_habit_path(@habit), class: "edit-link" do %>
+      <i class="fas fa-edit"></i> Edit
+    <% end %>
+
+    <%= link_to habit_path(@habit),
+        class: "delete-link",
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this habit?" } do %>
+      <i class="fas fa-trash"></i> Delete
+    <% end %>
+
+    <%= link_to habits_path, class: "back-link" do %>
+      <i class="fas fa-arrow-left"></i> Back
+    <% end %>
+  </div>
+</div>
