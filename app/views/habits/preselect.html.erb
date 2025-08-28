@@ -5,7 +5,7 @@
   <% @habits.each do |habit| %>
     <%= link_to new_habit_path, class: "community_card d-flex justify-content-between align-items-center m-3" do %>
       <%= habit.title %>
-      <span>+</span>
+      <p>+</p>
     <% end %>
   <% end %>
 </div>
