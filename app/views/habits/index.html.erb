@@ -1,6 +1,6 @@
 <div class="habits-container">
   <div class="header">
-    <h1>Good Morning! 👋</h1>
+    <h1>Hello <%= current_user.username %>! 👋</h1>
     <div class="date">Wednesday, August 27</div>
   </div>
   <div class="progress-card">
@@ -8,29 +8,28 @@
     <div class="progress-bar">2/4</div>
     <p class="progress-text">2 habits left to go!</p>
   </div>
-  <div class="section-title">
-    <h2>Today's Habits</h2>
-    <%= link_to "View All >", "#", class: "view-all" %>
-  </div>
   <ul class="habits-list">
     <% @habits.each do |habit| %>
-      <li>
-        <div class="habit-card">
+      <li class="habit-item">
+        <div class="habit-card" style="--habit-color: #<%= habit.color %>20">
           <%= link_to "", habit_path(habit), class: "card-link" %>
           <div class="habit-card-content">
             <h3 class="habit-card-title"><%= habit.title %></h3>
             <div class="habit-streak">
               <i class="fas fa-fire"></i>
-              <%= habit.streak || 0 %> day streak
+              <%= habit.streak %>
             </div>
           </div>
-          <div class="habit-card-actions">
-            <button class="mark-done">
-              <%= "✓" "Mark Done" %>
-            </button>
-            </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+        </div>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="habit-<%= habit.id %>"
+            class="checkbox-input"
+            <%= 'checked'%>>
+          <label for="habit-<%= habit.id %>" class="checkbox-label"></label>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

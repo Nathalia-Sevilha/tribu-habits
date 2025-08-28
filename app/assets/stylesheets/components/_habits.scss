@@ -5,20 +5,19 @@ $white: #ffffff;
 $grey-light: #f8f9fa;
 $success: #00c853;
 
+// Layout
 .habits-container {
   padding: 1.5rem 1rem;
   background: $white;
   min-height: 100vh;
 }
 
-// Header
+// Index page components
 .header {
   margin-bottom: 1.5rem;
 
   h1 {
     font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
   }
 
   .date {
@@ -26,42 +25,12 @@ $success: #00c853;
   }
 }
 
-// Progress card
 .progress-card {
   background: linear-gradient(90deg, $orange, lighten($orange, 10%));
   border-radius: 24px;
   padding: 1.5rem;
   margin-bottom: 2rem;
   color: $white;
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  .progress-text {
-    font-size: 1.1rem;
-    opacity: 0.9;
-  }
-}
-
-// Section title
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
-  .view-all {
-    color: $orange;
-    text-decoration: none;
-  }
 }
 
 // Habit cards
@@ -73,11 +42,18 @@ $success: #00c853;
   gap: 1rem;
 }
 
+.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .habit-card {
-  background: rgba($black, 0.05);
+  flex: 1;
   border-radius: 16px;
   padding: 1rem;
   position: relative;
+  background-color: var(--habit-color);
 
   .card-link {
     position: absolute;
@@ -86,10 +62,10 @@ $success: #00c853;
   }
 
   &-content {
+    flex: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.75rem;
   }
 
   &-title {
@@ -97,113 +73,66 @@ $success: #00c853;
     font-weight: 600;
     color: $black;
   }
+}
 
-  .habit-streak {
-    font-size: 0.9rem;
-    color: rgba($black, 0.6);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+// Updated toggle styles
+.checkbox-container {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  width: 48px;
+}
 
-    i {
-      color: $orange;
-    }
-  }
+.checkbox-input {
+  display: none;
 
-  &-actions {
-    position: relative;
-    z-index: 2;
+  &:checked + .checkbox-label {
+    background: $success;
+    border-color: $success;
 
-    .mark-done {
-      width: auto;
-      background: $success;
-      color: $white;
-      border: none;
-      border-radius: 12px;
-      padding: 0.75rem 1.25rem;
-      font-weight: 500;
-
-      &[disabled] {
-        background: rgba($black, 0.1);
-        color: rgba($black, 0.4);
-      }
+    &:after {
+      opacity: 1;
     }
   }
 }
 
-// Buttons
-.habit-btn {
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  border: none;
-  font-weight: 500;
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: $white;
+  border: 2px solid rgba($black, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:after {
+    content: "✓";
+    color: $white;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}
+
+// Streak display
+.habit-streak {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-
-  &.mark-done {
-    background: $success;
-    color: $white;
-
-    &[disabled] {
-      opacity: 0.5;
-    }
-  }
-
-  &.edit {
-    background: $orange;
-    color: $white;
-  }
-
-  &.delete {
-    border: 2px solid $black;
-    background: $white;
-    color: $black;
-  }
-
-  &.back {
-    border: 2px solid $grey-light;
-    background: $white;
-    color: $black;
-  }
-}
-
-// Form elements
-.form-group {
-  margin-bottom: 1rem;
-}
-
-// Form styling
-.form-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.form-select,
-.form-input {
-  width: 100%;
-  padding: 1rem;
-  border: 1px solid rgba($black, 0.1);
-  border-radius: 12px;
   font-size: 1rem;
-  background: $white;
+  font-weight: 500;
+  color: rgba($black, 0.8);
 
-  &:focus {
-    outline: none;
-    border-color: $orange;
+  i {
+    color: $orange;
+    font-size: 1.2rem;
   }
 }
 
-.color-section {
-  .color-label {
-    font-size: 1rem;
-    color: $black;
-    margin-bottom: 1rem;
-  }
-}
-
+// Form elements for new/edit
 .color-choices {
   display: flex;
   gap: 1rem;
@@ -231,9 +160,4 @@ $success: #00c853;
   border-radius: 12px;
   font-size: 1rem;
   font-weight: 500;
-  cursor: pointer;
-
-  &:active {
-    background: darken($orange, 5%);
-  }
 }
