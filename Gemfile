@@ -17,6 +17,7 @@ gem "stimulus-rails"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
+gem "ruby_llm"
 gem "devise"
 gem "pundit"
 
