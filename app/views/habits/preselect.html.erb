@@ -1,10 +1,11 @@
-<%= link_to "Add custom habit", new_habit_path, class: "btn btn-small" %>
-<div>
+<%= render partial: "shared/header",  locals: { zone: @habits, title: "Habits"}  %>
+<%= link_to "Add custom habit", new_habit_path, class: "btn btn-large m-3 p-3" %>
 
-<% @habits.each do |habit| %>
 <div>
-  <%= habit.title %>
-  <%= link_to "+", new_habit_path %>
-  </div>
-<% end %>
+  <% @habits.each do |habit| %>
+    <%= link_to new_habit_path, class: "community_card d-flex justify-content-between align-items-center m-3" do %>
+      <%= habit.title %>
+      <p>+</p>
+    <% end %>
+  <% end %>
 </div>
