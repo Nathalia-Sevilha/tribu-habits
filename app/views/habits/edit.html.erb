@@ -1,2 +1,7 @@
-<h1>Edit the Habit</h1>
-<%= render "edit_form", habit: @habit %>
+<div class="habits-container">
+  <h1 class="habits-title">
+    <span style="color: #<%= @habit.color %>">●</span>
+    Edit Habit
+  </h1>
+  <%= render "edit_form", habit: @habit %>
+</div>

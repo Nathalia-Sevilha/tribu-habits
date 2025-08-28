@@ -1,159 +1,239 @@
-.habit-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
+// Variables
+$orange: #ff9f1c;
+$black: #333333;
+$white: #ffffff;
+$grey-light: #f8f9fa;
+$success: #00c853;
 
-.habit-title {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 2rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.habit-info {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  border: 2px solid #eee;
-
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-}
-
-.habit-streak {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: #ff9f1c;
-  border-radius: 20px;
-  color: white;
-  font-weight: bold;
-
-  i {
-    color: #fff;
-    margin-right: 0.5rem;
-  }
-}
-
-.habit-actions {
-  display: flex;
-  gap: 1rem;
-}
-
-.habit-btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-weight: 600;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-
-  &.edit {
-    background: #ff9f1c;
-    color: white;
-
-    &:hover {
-      background: darken(#ff9f1c, 10%);
-    }
-  }
-
-  &.delete {
-    background: white;
-    color: #333;
-    border: 2px solid #333;
-
-    &:hover {
-      background: #333;
-      color: white;
-    }
-  }
-
-  &.back {
-    background: white;
-    color: #333;
-    border: 2px solid #eee;
-
-    &:hover {
-      border-color: #ff9f1c;
-      color: #ff9f1c;
-    }
-  }
-}
-
-// Styles for index page
 .habits-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem 1rem;
+  background: $white;
+  min-height: 100vh;
 }
 
-.habits-title {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 2rem;
-  font-weight: bold;
-}
+// Header
+.header {
+  margin-bottom: 1.5rem;
 
-.new-habit-btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #ff9f1c;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.2s;
-  margin-bottom: 2rem;
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
 
-  &:hover {
-    background: darken(#ff9f1c, 10%);
-    transform: translateY(-2px);
+  .date {
+    color: rgba($black, 0.6);
   }
 }
 
+// Progress card
+.progress-card {
+  background: linear-gradient(90deg, $orange, lighten($orange, 10%));
+  border-radius: 24px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  color: $white;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .progress-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+}
+
+// Section title
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .view-all {
+    color: $orange;
+    text-decoration: none;
+  }
+}
+
+// Habit cards
 .habits-list {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-  li {
-    margin-bottom: 1rem;
+.habit-card {
+  background: rgba($black, 0.05);
+  border-radius: 16px;
+  padding: 1rem;
+  position: relative;
 
-    a {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: white;
-      border: 2px solid #eee;
-      border-radius: 8px;
-      color: #333;
-      text-decoration: none;
-      transition: all 0.2s;
+  .card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
 
-      &:hover {
-        border-color: #ff9f1c;
-        transform: translateX(5px);
-      }
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
 
-      span {
-        font-size: 1.5rem;
+  &-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $black;
+  }
+
+  .habit-streak {
+    font-size: 0.9rem;
+    color: rgba($black, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      color: $orange;
+    }
+  }
+
+  &-actions {
+    position: relative;
+    z-index: 2;
+
+    .mark-done {
+      width: auto;
+      background: $success;
+      color: $white;
+      border: none;
+      border-radius: 12px;
+      padding: 0.75rem 1.25rem;
+      font-weight: 500;
+
+      &[disabled] {
+        background: rgba($black, 0.1);
+        color: rgba($black, 0.4);
       }
     }
+  }
+}
+
+// Buttons
+.habit-btn {
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &.mark-done {
+    background: $success;
+    color: $white;
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+  }
+
+  &.edit {
+    background: $orange;
+    color: $white;
+  }
+
+  &.delete {
+    border: 2px solid $black;
+    background: $white;
+    color: $black;
+  }
+
+  &.back {
+    border: 2px solid $grey-light;
+    background: $white;
+    color: $black;
+  }
+}
+
+// Form elements
+.form-group {
+  margin-bottom: 1rem;
+}
+
+// Form styling
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-select,
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba($black, 0.1);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: $white;
+
+  &:focus {
+    outline: none;
+    border-color: $orange;
+  }
+}
+
+.color-section {
+  .color-label {
+    font-size: 1rem;
+    color: $black;
+    margin-bottom: 1rem;
+  }
+}
+
+.color-choices {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.color-choice {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 3px solid transparent;
+
+  &.selected {
+    border: 3px solid $black;
+  }
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: $orange;
+  color: $white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:active {
+    background: darken($orange, 5%);
   }
 }
