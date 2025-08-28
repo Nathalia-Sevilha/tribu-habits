@@ -2,20 +2,29 @@ class HabitPolicy < ApplicationPolicy
   def show?
     true
   end
-    def new?
+
+  def new?
     true
   end
-      def create?
+
+  def create?
     true
   end
+
   def edit?
     true
   end
+
   def update?
     true
   end
+  
   def destroy?
     true
+  end
+
+  def preselect?
+     true
   end
   # NOTE: Up to Pundit v2.3.1, the inheritance was declared as
   # `Scope < Scope` rather than `Scope < ApplicationPolicy::Scope`.
