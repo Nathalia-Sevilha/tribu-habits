@@ -14,6 +14,7 @@ Post.destroy_all
 Habit.destroy_all
 Community.destroy_all
 User.destroy_all
+Day.destroy_all
 
 puts "Seeding users..."
 # Users for Devise must have email and password
