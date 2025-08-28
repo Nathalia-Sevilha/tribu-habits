@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :habits
   resources :communities, only: [ :index, :show ] do
     resources :posts do
-      resources :comments, only: [ :destroy, :create ]
+      resources :comments, only: [:new, :destroy, :create ]
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

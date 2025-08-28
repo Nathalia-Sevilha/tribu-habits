@@ -1,0 +1,13 @@
+<%= render "shared/header", title: "Add Comment to: #{@post.title}" %>
+
+<div class="container mt-4">
+  <%= form_with(model: [@community, @post, @comment], local: true) do |f| %>
+    <div class="mb-3">
+      <%= f.label :content, "Your Comment" %>
+      <%= f.text_area :content, rows: 4, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Create Comment", class: "btn btn-primary" %>
+    <%= link_to "Cancel", community_post_path(@community, @post), class: "btn btn-secondary ms-2" %>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
 <section class="px-4 d-flex justify-content-start align-items-center shadow-sm bg-white" style="height:70px;" >
   <i class="fa-solid fa-angle-left"></i>
-    <h1 class="m-0 mx-2 h5 fw-normal"><%= zone.title %> <%= "#{suffix}" if local_assigns[:suffix].present? %></h1>
+    <h1 class="m-0 mx-2 h5 fw-normal"><%= local_assigns[:title] || zone.title %> <%= "#{suffix}" if local_assigns[:suffix].present? %></h1>
 </section>
