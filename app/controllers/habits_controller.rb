@@ -45,6 +45,11 @@ class HabitsController < ApplicationController
     redirect_to habits_path, notice: "Habit was successfully deleted.", status: :see_other
   end
 
+  def preselect
+    authorize Habit
+    @habits = Habit.all
+  end
+
   private
 
   def set_habit

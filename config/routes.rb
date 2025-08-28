@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :habits
+  resources :habits do
+    collection do
+      get "preselect"
+    end
+  end
+
   resources :communities, only: [ :index, :show ] do
     resources :posts do
-      resources :comments, only: [ :destroy, :create ]
+      resources :comments, only: [:new, :destroy, :create ]
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

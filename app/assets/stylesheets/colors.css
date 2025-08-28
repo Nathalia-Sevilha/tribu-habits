@@ -26,9 +26,12 @@
   --violet: #A2AADB;
   --light-violet: #C0C9EE;
 
-
+  --orange: #FE8C4F;
 
   --color-primary: #333;  /* override Bootstrap primary */
   --color-secondary: linear-gradient(90deg,rgba(254, 140, 79, 1) 0%, rgba(254, 168, 62, 0.98) 48%);
-
+  --color-background: #F6F6F6;
+  --community-text-color : #666666;
+  --community-title-color : #343843;
+  --color-white: #ffffff;
 }

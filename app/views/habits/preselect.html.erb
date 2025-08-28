@@ -1,0 +1,10 @@
+<%= link_to "Add custom habit", new_habit_path, class: "btn btn-small" %>
+<div>
+
+<% @habits.each do |habit| %>
+<div>
+  <%= habit.title %>
+  <%= link_to "+", new_habit_path %>
+  </div>
+<% end %>
+</div>
