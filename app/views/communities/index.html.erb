@@ -1,5 +1,6 @@
+  <h1>Your communities</h1>
   <% @communities.each do |community| %>
-  <h1>this is all communities page</h1>
+  <div class="community_card text-center m-3">
   <p><%= link_to community.title, community_path(community) %></p>
-
+  </div>
   <% end %>
