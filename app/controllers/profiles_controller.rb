@@ -23,3 +23,7 @@ class ProfilesController < ApplicationController
     params.require(:user).permit(:username, :photo)
   end
 end
+
+
+# const form = document.querySelector(".profileform");
+# form.submit()

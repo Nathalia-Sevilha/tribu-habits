@@ -1,18 +1,38 @@
 <%= render partial: "shared/header",  locals: { zone: @user, title: "Your Profile"}  %>
-<div class="container-card ">
-  <div>
-    <div>
-      <% if @user.photo.attached? %>
-        <%= image_tag @user.photo.variant(resize_to_fill: [100, 100]).processed, class: "rounded-circle", style: "width: 100px; height: 100px; object-fit: cover;" %>
-      <% else %>
-        <%= image_tag "https://via.placeholder.com/100", class: "rounded-circle", style: "width: 100px; height: 100px; object-fit: cover;" %>
-      <% end %>
+<div class="container" style="color: var(--community-text-color);">
+  <div class="d-flex flex-column gap-4 mt-4 mb-4">
+    <div class="d-flex flex-column align-items-center">
+      <div class="d-flex flex-column align-items-center user-avatar">
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key %>
+        <% else %>
+          <%= image_tag "user-avatar.svg" %>
+        <% end %>
+
+        <%= form_with(model: @user, url: profile_path, method: :patch, local: true, html: { multipart: true, class: "profileform" }) do |f| %>
+          <label for="user_photo" class="icon-change-photo">
+            <i class="fas fa-camera"></i>
+          </label>
+          <%= f.file_field :photo, id: "user_photo", class: "d-none", accept: "image/*" %>
+        <% end %>
+      </div>
     </div>
+
 
     <h2>Account setting</h2>
 
     <div>
-      <%= form_with(model: @user, url: profile_path, method: :patch, local: true, html: { multipart: true }) do |f| %>
+      <%= form_with(model: @user, url: profile_path, local: true, method: :patch, html: { multipart: true }) do |f| %>
+        <% if @user.errors.any? %>
+          <div class="alert alert-danger">
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <div>
           <%= f.label :email, class: "form-label" %>
         </div>
@@ -27,7 +47,7 @@
       <% end %>
 
       <div>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn" %>
+        <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn" %>
       </div>
     </div>
   </div>
