@@ -1,0 +1,15 @@
+<div>
+<h1 class="fw-bold">Hello, <%= current_user.username %></h1>
+<p>How can I assist you today?</p>
+
+<div class='container m-4' id='chat_title'>
+  <h1><%= @chat.title %></h1>
+</div>
+<div class="container mt-3" id='messages'>
+  <%= render 'messages/messages' , messages: @chat.messages.visible%>
+</div>
+<div class="container sticky-bottom bg-white p-3" style="z-index: 1030;">
+  <div class="card p-3 d-flex" id="new_message">
+    <%= render 'messages/form', chat: @chat, message: Message.new %>
+  </div>
+</div>

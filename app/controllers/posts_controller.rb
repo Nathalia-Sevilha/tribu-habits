@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 before_action :set_post, only: [ :show, :edit, :update, :destroy ]
-before_action :set_community, only: [:index, :new, :create]
+before_action :set_community, only: [:index, :new, :create, :show, :destroy]
 
   def index
     @posts = policy_scope(Post)
@@ -45,7 +45,7 @@ before_action :set_community, only: [:index, :new, :create]
   def destroy
     authorize @post
     @post.destroy
-    redirect_to posts_path, notice: "Post was successfully deleted.", status: :see_other
+    redirect_to community_path(@community), notice: "Post was successfully deleted.", status: :see_other
   end
 
   private

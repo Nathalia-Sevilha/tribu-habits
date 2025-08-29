@@ -20,6 +20,7 @@ gem "stimulus-rails"
 gem "ruby_llm"
 gem "devise"
 gem "pundit"
+gem "dotenv-rails"
 
 gem 'dotenv-rails', groups: [:development, :test]
 
