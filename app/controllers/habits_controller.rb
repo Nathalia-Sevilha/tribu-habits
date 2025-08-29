@@ -57,6 +57,6 @@ class HabitsController < ApplicationController
   end
 
   def habit_params
-    params.require(:habit).permit(:title, :description, :streak, :color)
+    params.require(:habit).permit(:title, :description, :streak, :color, day_ids: [])
   end
 end
