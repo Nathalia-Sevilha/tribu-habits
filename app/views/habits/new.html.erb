@@ -1,4 +1,8 @@
 <div class="habits-container">
-  <h1 class="habits-title">New Habit</h1>
-  <%= render "form", habit: @habit %>
+  <% if params[:habit_id].present? %>
+      <%= render "form", habit: @habit, show_title_input: true %>
+  <% else %>
+    <h2>Create your custom habit</h2>
+    <%= render "form", habit: @habit, show_title_input: true %>
+  <% end %>
 </div>
