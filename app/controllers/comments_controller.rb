@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     authorize @comment
     @comment.destroy
-    redirect_to post_path(@post), notice: "Comment was deleted."
+    redirect_to community_post_path(@community, @post), notice: "Comment was deleted."
   end
 
 

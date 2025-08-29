@@ -100,3 +100,22 @@ h1, h2, h3, h4, h5, h6 {
 .bg-gray {
   background-color: var(--color-background);
 }
+
+.btn_create{
+  width: 110px;
+  background: var(--orange);
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  // font-weight: 600;
+}
+
+.btn_cancel{
+  width: 90px;
+  background: var(--community-title-color);
+  text-decoration: none;
+}
