@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 before_action :set_post, only: [ :show, :edit, :update, :destroy ]
-before_action :set_community, only: [:index, :new, :create]
+before_action :set_community, only: [:index, :new, :create, :show]
 
   def index
     @posts = policy_scope(Post)
