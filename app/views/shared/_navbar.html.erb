@@ -12,7 +12,7 @@
     <% end %>
   </div>
   <div>
-    <%= link_to communities_path do %>
+    <%= link_to chats_path, data: { "turbo-method": :post } do %>
       <%= image_tag "stars.svg" %>
       <span>AI</span>
     <% end %>
