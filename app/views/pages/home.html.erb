@@ -13,10 +13,10 @@
       </div>
 
   <div>
-    <%= link_to "Login", new_user_session_path, class: "btn btn-small my-1" %>
+    <%= link_to "Login", new_user_session_path, class: "btn btn-small my-1", data: { turbo: false } %>
   </div>
   <div>
-    <%= link_to "Register", new_user_registration_path, class: "login-link" %>
+    <%= link_to "Register", new_user_registration_path, class: "login-link", data: { turbo: false } %>
   </div>
       </div>
     </div>

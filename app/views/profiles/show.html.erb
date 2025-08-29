@@ -37,10 +37,12 @@
         <h6 class="fw-normal p-1 m-0 mx-1">Select Language</h6>
       </div>
 
-      <div class="card_style d-flex align-items-center">
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-decoration-none text-reset p-1 m-0 mx-1"%>
-      </div>
+      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "text-decoration-none text-reset" do %>
+        <div class="card_style d-flex align-items-center">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <h6 class="fw-normal p-1 m-0 mx-1">Logout</h6>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
