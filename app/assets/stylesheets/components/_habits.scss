@@ -161,3 +161,42 @@ $success: #00c853;
   font-size: 1rem;
   font-weight: 500;
 }
+
+// Habit Show page enhancements
+  .habit-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .habit-info {
+    background-color: var(--habit-color);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .habit-streak {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-top: 0.5rem;
+  }
+
+  .habit-actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .habit-actions a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .habit-actions a:hover {
+    text-decoration: underline;
+  }

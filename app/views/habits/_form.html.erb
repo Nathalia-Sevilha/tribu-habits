@@ -35,14 +35,13 @@
   </div>
   <div class="form-group">
       <p>Choose the days for this habit:</p>
-      <% Day.all.each do |day| %>
-        <%= form.input :day_ids,
-            as: :boolean,
-            label: day.name,
-            multiple: true,
-            checked: @habit.days.include?(day),
-            input_html: { name: "habit[day_ids][]", value: day.id } %>
-      <% end %>
+    <%= hidden_field_tag "habit[day_ids][]", nil %>
+
+  <%= form.label :days %><br>
+  <% Day.all.each do |day| %>
+    <%= check_box_tag "habit[day_ids][]", day.id, @habit.days.include?(day)  %>
+    <%= day.name %><br>
+  <% end %>
     </div>
   <%= form.button :submit, "Create Habit", class: "form-submit-btn" %>
 <% end %>
