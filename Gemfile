@@ -20,6 +20,7 @@ gem "stimulus-rails"
 gem "ruby_llm"
 gem "devise"
 gem "pundit"
+gem "dotenv-rails"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
