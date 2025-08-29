@@ -45,14 +45,14 @@ puts "✅ Created #{Community.count} communities"
 
 puts "Seeding habits..."
 habits = [
-  { title: "🚶 Walk", description: "Walk 10.000 steps per day", color: nil, streak: 1, user: User.first, community: Community.first },
-  { title: "🏃 Run", description: "Run 5km per day", color: nil, streak: 0, user: User.second, community: Community.first },
-  { title: "🏋️ Workout", description: "Workout 1 hour, 4 times a week", color: nil, streak: 1, user: User.third, community: Community.second },
-  { title: "💧 Drink water", description: "Drink 3L of water every day", color: nil, streak: 3, user: User.fourth, community: Community.third },
-  { title: "📖 Read a book", description: "Read one book per week", color: nil, streak: 0, user: User.first, community: Community.fourth },
-  { title: "🧘 Meditation", description: "Meditate 30 minutes per day", color: nil, streak: 5, user: User.second, community: Community.fifth },
-  { title: "🥗 Eat healthier", description: "Eat one fruit per day", color: nil, streak: 10, user: User.third, community: Community.offset(5).first },
-  { title: "🌱 Water the plants", description: "Water the plants twice a day", color: nil, streak: 6, user: User.fourth, community: Community.offset(6).first }
+  { title: "🚶 Walk", description: "Walk 10.000 steps per day", color: "F5F5F5", streak: 1, user: User.first, community: Community.first },
+  { title: "🏃 Run", description: "Run 5km per day", color: "F5F5F5", streak: 0, user: User.second, community: Community.first },
+  { title: "🏋️ Workout", description: "Workout 1 hour, 4 times a week", color: "F5F5F5", streak: 1, user: User.third, community: Community.second },
+  { title: "💧 Drink water", description: "Drink 3L of water every day", color: "F5F5F5", streak: 3, user: User.fourth, community: Community.third },
+  { title: "📖 Read a book", description: "Read one book per week", color: "F5F5F5", streak: 0, user: User.first, community: Community.fourth },
+  { title: "🧘 Meditation", description: "Meditate 30 minutes per day", color: "F5F5F5", streak: 5, user: User.second, community: Community.fifth },
+  { title: "🥗 Eat healthier", description: "Eat one fruit per day", color: "F5F5F5", streak: 10, user: User.third, community: Community.offset(5).first },
+  { title: "🌱 Water the plants", description: "Water the plants twice a day", color: "F5F5F5", streak: 6, user: User.fourth, community: Community.offset(6).first }
 ]
 
 habits.each { |habit| Habit.create!(habit) }
