@@ -1,15 +1,56 @@
-<div>
-<h1 class="fw-bold">Hello, <%= current_user.username %></h1>
-<p>How can I assist you today?</p>
+<div class="chat-page">
 
-<div class='container m-4' id='chat_title'>
-  <h1><%= @chat.title %></h1>
-</div>
-<div class="container mt-3" id='messages'>
-  <%= render 'messages/messages' , messages: @chat.messages.visible%>
-</div>
-<div class="container sticky-bottom bg-white p-3" style="z-index: 1030;">
-  <div class="card p-3 d-flex" id="new_message">
-    <%= render 'messages/form', chat: @chat, message: Message.new %>
-  </div>
+  <!-- Header -->
+  <header class="chat-header">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-2">
+        <i class="fa-regular fa-message text-orange"></i>
+        <h1 class="chat-title h6 m-0">
+          <%= @chat.title.presence || "Untitled chat" %>
+        </h1>
+        <span class="model-chip">
+          <%= @chat.model_id.presence || "model" %>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Messages -->
+  <section class="chat-body">
+    <div id="messages" class="container chat-messages">
+      <% if @chat.messages.any? %>
+        <% @chat.messages.each do |message| %>
+          <%= render "message", message: message %>
+        <% end %>
+      <% else %>
+        <div class="empty-state card_style">
+          <h2 class="h6 mb-2 chat-title">Say hello 👋</h2>
+          <p class="m-0 chat-text">Ask a question to get started.</p>
+        </div>
+      <% end %>
+      <div id="messages-end"></div>
+    </div>
+  </section>
+
+  <!-- Composer -->
+  <footer class="chat-composer">
+    <div class="container">
+      <%= form_with model: [@chat, @message], html: { id: "message-form", autocomplete: "off" } do |f| %>
+        <div class="composer-inner card_style">
+          <%= f.text_area :content,
+                rows: 1,
+                placeholder: "Type your message…",
+                class: "form-control composer-input",
+                id: "chat-input",
+                data: { behavior: "autogrow" } %>
+
+          <button type="submit" class="btn btn-primary send-btn" id="send-btn" title="Send (⌘/Ctrl + Enter)">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span class="ms-1 d-none d-sm-inline">Send</span>
+
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </footer>
 </div>

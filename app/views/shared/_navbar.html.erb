@@ -1,24 +1,27 @@
 <nav class="navbar-app">
-  <div>
-    <%= link_to habits_path do %>
+   <div class="navbar-button">
+    <%= link_to habits_path, class: active_class_by_controller('habits') do %>
       <%= image_tag "home.svg" %>
       <span>Home</span>
     <% end %>
   </div>
-  <div>
-    <%= link_to communities_path do %>
+
+  <div class="navbar-button">
+    <%= link_to communities_path, class: active_class_by_controller('communities') do %>
       <%= image_tag "tribe.svg" %>
       <span>Tribe</span>
     <% end %>
   </div>
-  <div>
-    <%= link_to chats_path, data: { "turbo-method": :post } do %>
+
+  <div class="navbar-button">
+    <%= link_to chats_path, class: active_class_by_controller('chats'), data: { "turbo-method": :post } do %>
       <%= image_tag "stars.svg" %>
       <span>AI</span>
     <% end %>
   </div>
-  <div>
-    <%= link_to profile_path do %>
+
+  <div class="navbar-button">
+    <%= link_to habits_path, class: active_class_by_controller('habits') do %>
       <%= image_tag "user.svg" %>
       <span>Profile</span>
     <% end %>
@@ -30,3 +33,4 @@
     <% end %>
   </div>
 </nav>
+
