@@ -1,0 +1,17 @@
+<div class="community_style">
+  <section class="container">
+    <div class="card_style d-flex flex-column align-items-center justify-content-center p-5 text-center">
+      <i class="fa-regular fa-comments mb-3" style="font-size: 2rem; color: var(--orange);"></i>
+      <h1 class="h4 mb-2" style="color: var(--community-title-color);">Start a new chat</h1>
+      <p class="mb-4" style="color: var(--community-text-color);">
+        Ask anything. A fresh conversation will be created just for you.
+      </p>
+
+      <!-- Create via POST /chats -->
+      <%= link_to "New Chat",
+                  chats_path,
+                  class: "btn btn-primary",
+                  data: { "turbo-method": :post } %>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,30 @@
+<% role =
+  if message.respond_to?(:role) && message.role.present?
+    message.role
+  elsif message.respond_to?(:user_id) && message.user_id.present?
+    "user"
+  else
+    "assistant"
+  end
+%>
+
+<div class="message-row <%= role %>">
+  <div class="avatar">
+    <% if role == "user" %>
+      <%= image_tag "user.svg", alt: "You" %>
+    <% else %>
+      <%= image_tag "stars.svg", alt: "AI" %>
+    <% end %>
+  </div>
+
+  <div class="bubble card_style">
+    <div class="message <%= role == "user" ? "user-message" : "ai-message" %>">
+      <p><%= message.content %></p>
+    </div>
+    <div class="meta">
+      <small class="text-muted">
+      <%= time_ago_in_words(message.created_at || message.updated_at || Time.current) %> ago
+    </small>
+    </div>
+  </div>
+</div>
