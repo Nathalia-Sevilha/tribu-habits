@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_08_27_152003) do
+ActiveRecord::Schema[7.2].define(version: 2025_08_29_092831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_27_152003) do
     t.string "title"
     t.integer "streak", default: 0
     t.string "description"
-    t.string "color"
+    t.string "color", default: "F5F5F5"
     t.bigint "user_id", null: false
     t.bigint "community_id", null: false
     t.datetime "created_at", null: false

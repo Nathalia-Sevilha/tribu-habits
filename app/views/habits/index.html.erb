@@ -11,7 +11,7 @@
   <ul class="habits-list">
     <% @habits.each do |habit| %>
       <li class="habit-item">
-        <div class="habit-card" style="--habit-color: #<%= habit.color %>80">
+        <div class="habit-card" style="--habit-color: #<%= habit.color %>">
           <%= link_to "", habit_path(habit), class: "card-link" %>
           <div class="habit-card-content">
             <h3 class="habit-card-title"><%= habit.title %></h3>
