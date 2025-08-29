@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :profile, only: [ :show, :update ]
+
   resources :communities, only: [ :index, :show ] do
     resources :posts do
       resources :comments, only: [ :new, :destroy, :create ]
@@ -28,5 +30,4 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-
 end

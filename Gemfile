@@ -22,6 +22,14 @@ gem "devise"
 gem "pundit"
 gem "dotenv-rails"
 
+gem 'dotenv-rails', groups: [:development, :test]
+
+# Use Active Storage
+gem "cloudinary", "~> 1.26"
+gem "activestorage-cloudinary-service"
+
+gem "image_processing", "~> 1.2"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

@@ -1,0 +1,46 @@
+<%= render partial: "shared/header",  locals: { zone: @user, title: "Your Profile"}  %>
+<div class="card_style" style="color: var(--community-text-color);">
+  <div class="d-flex flex-column mt-4">
+    <div class="d-flex flex-column align-items-center">
+      <div class="d-flex flex-column align-items-center user-avatar">
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, class: "user-avatar-img" %>
+        <% else %>
+          <%= image_tag "user-avatar.svg" %>
+        <% end %>
+
+        <%= form_with(model: @user, url: profile_path, method: :patch, local: true, html: { multipart: true, data: { controller: "photo-upload" } }) do |f| %>
+          <label for="user_photo" class="icon-change-photo">
+            <i class="fas fa-camera"></i>
+          </label>
+          <%= f.file_field :photo, id: "user_photo", class: "d-none", accept: "image/*", data: { photo_upload_target: "input", action: "change->photo-upload#change" } %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <h5 class="mt-4" style="color: var(--community-title-color)">Account setting</h5>
+
+    <div class="d-flex flex-column">
+      <div class="card_style d-flex align-items-center">
+        <i class="fa-solid fa-envelope"></i>
+        <h6 class="fw-normal p-1 m-0 mx-1">Email</h6>
+      </div>
+
+      <div class="card_style d-flex align-items-center">
+        <i class="fa-solid fa-lock"></i>
+        <h6 class="fw-normal p-1 m-0 mx-1">Password</h6>
+      </div>
+
+      <div class="card_style d-flex align-items-center">
+        <i class="fa-solid fa-globe"></i>
+        <h6 class="fw-normal p-1 m-0 mx-1">Select Language</h6>
+      </div>
+
+      <div class="card_style d-flex align-items-center">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-decoration-none text-reset p-1 m-0 mx-1"%>
+      </div>
+    </div>
+  </div>
+</div>
