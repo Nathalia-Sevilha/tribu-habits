@@ -200,3 +200,23 @@ $success: #00c853;
   .habit-actions a:hover {
     text-decoration: underline;
   }
+
+.weekday-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+input[type="checkbox"].d-none:checked + .weekday-btn {
+  background-color: orange;
+  border-color: orange;
+  color: white;
+}
