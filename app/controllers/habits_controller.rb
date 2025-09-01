@@ -2,14 +2,12 @@ class HabitsController < ApplicationController
   before_action :set_habit, only: [ :show, :edit, :update, :destroy ]
 
   def index
-  @habits = policy_scope(Habit)
-  #Nathalia
-  @today = Day.find_by(name: Date.today.strftime("%A").downcase)
-  @day_habits = @today&.habits_for_user(current_user) || []
-  @completed_count = @today&.completed_habits_count(current_user) || 0
-  @total_count = @today&.total_habits_count(current_user) || 0
-  authorize Habit
-  # Nathalia
+    today_name = Date::DAYNAMES[Date.today.wday]
+    @day = Day.find_by(name: today_name)
+    @habits = policy_scope(Habit).joins(:days).where(days: { name: today_name })
+    @total_count = @habits.count
+    @completed_count = DayHabit.where(habit_id: @habits.pluck(:id), day_id: @day.id, done: true).count
+    @completion_percentage = @total_count > 0 ? ((@completed_count.to_f / @total_count) * 100).round : 0
   end
 
   def show
@@ -60,8 +58,8 @@ class HabitsController < ApplicationController
   end
 
   def destroy
-    @habit.destroy
     authorize @habit
+    @habit.destroy
     redirect_to habits_path, notice: "Habit was successfully deleted.", status: :see_other
   end
 
