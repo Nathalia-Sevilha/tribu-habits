@@ -10,14 +10,21 @@ class HabitsController < ApplicationController
   end
 
   def new
-    @habit = Habit.new
-    authorize @habit
+    if params[:habit_id].present?
+      @habit_title = Habit.find(params[:habit_id]).title
+      @habit = Habit.new
+      @habit.title = @habit_title
+      authorize @habit
+    else
+      @habit = Habit.new
+      authorize @habit
+    end
   end
 
   def create
     @habit = Habit.new(habit_params)
     @habit.user = current_user
-    @habit.community = Community.find_by(title: @habit.title)
+    @habit.community = Community.first
     authorize @habit
     if @habit.save
       redirect_to @habit, notice: "Habit was successfully created."
