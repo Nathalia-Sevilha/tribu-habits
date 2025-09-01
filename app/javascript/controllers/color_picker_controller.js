@@ -1,7 +1,8 @@
+// app/javascript/controllers/color_select_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  connect() {
+   connect() {
     this.colorInput = this.element.querySelector('input[name="habit[color]"]')
     this.colorChoices = this.element.querySelectorAll('.color-choice')
 
