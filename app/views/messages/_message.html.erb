@@ -1,5 +1,28 @@
-<div class="d-flex justify-content-end mb-2">
-  <div class="bg-success text-white p-2 rounded" style="max-width: 70%;">
-    <%= message.content %>
+<% role =
+     if message.respond_to?(:role) && message.role.present?
+       message.role
+     elsif message.respond_to?(:user_id) && message.user_id.present?
+       "user"
+     else
+       "assistant"
+     end
+%>
+
+<div class="message-row <%= role %>">
+  <div class="avatar">
+    <% if role == "user" %>
+      <%= image_tag "user.svg", alt: "You" %>
+    <% else %>
+      <%= image_tag "stars.svg", alt: "AI" %>
+    <% end %>
+  </div>
+
+  <div class="bubble card_style">
+    <div class="content" style="color: var(--community-text-color);">
+      <%= simple_format(message.content.to_s) %>
+    </div>
+    <div class="meta">
+      <small class="text-muted"><%= time_ago_in_words(message.created_at) %> ago</small>
+    </div>
   </div>
 </div>

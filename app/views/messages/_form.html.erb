@@ -1,4 +1,5 @@
-<%= simple_form_for([chat, message]) do |f| %>
-  <%= f.input :content, label: false, placeholder: 'Type a message...'%>
-  <%= f.submit "Send", class: 'btn btn-success' %>
-<% end %>
+
+  <%= simple_form_for([chat, message]) do |f| %>
+    <%= f.input :content,row:2, label: false, placeholder: 'Type a message...'%>
+    <%= f.submit "Send", class: 'btn btn-success' %>
+  <% end %>
