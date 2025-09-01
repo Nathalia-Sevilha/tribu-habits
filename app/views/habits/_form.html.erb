@@ -22,30 +22,19 @@
           placeholder: "Add a description",
           input_html: { class: 'form-input' } %>
     </div>
-    <div data-controller="color-picker" class="form-group my-3">
-  <label class="color-label mb-1">Color</label>
-
-  <div class="d-flex align-items-center gap-2">
-    <%= form.input :color,
-      as: :select,
-      collection: [
-        ['Rose',  'F09393'],
-        ['Lilac', 'F5B6F3'],
-        ['Pink',  'FFC7D0'],
-        ['Peach', 'FFDA9B'],
-        ['Lemon', 'E4ED97'],
-        ['Mint',  'C1F4DC'],
-        ['Aqua',  'ACDFEB']
-      ],
-      selected: @habit.color,
-      include_blank: 'Pick a color…',
-      label: false,
-      input_html: { class: "form-select", data: { color_picker_target: "select", action: "change->color-picker#update" } }
-    %>
-
-    <span class="color-swatch" data-color-picker-target="swatch"></span>
-  </div>
-</div>
+       <div class="form-group color-section my-3" data-controller="color-picker">
+      <p class="color-label">Pick a color for your habit</p>
+      <div class="color-choices">
+        <% %w[ F09393 F5B6F3 FFC7D0 FFDA9B E4ED97 C1F4DC ACDFEB ].each do |color| %>
+          <div
+            class="color-choice <%= 'selected' if @habit.color == color %>"
+            data-color="<%= color %>"
+            style="background: #<%= color %>">
+          </div>
+        <% end %>
+      </div>
+      <%= form.input :color, as: :hidden %>
+    </div>
 
   </div>
  <div class="form-group mb-3">
