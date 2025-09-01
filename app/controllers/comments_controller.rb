@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_post, only: :create
-  before_action :set_context, only: [:new, :create, :destroy]
+  before_action :set_context, only: [ :new, :create, :destroy ]
 
 
   def new

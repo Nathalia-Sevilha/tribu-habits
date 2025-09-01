@@ -8,7 +8,7 @@ class CommunitiesController < ApplicationController
 
   def show
     authorize @community
-    @posts = Post.where(community: @community)
+    @posts = Post.where(community: @community).order(created_at: :desc)
   end
 
   private
