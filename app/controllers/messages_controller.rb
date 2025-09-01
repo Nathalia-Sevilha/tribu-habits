@@ -44,7 +44,7 @@ class MessagesController < ApplicationController
 
     @message.save!
       @chat.with_instructions(instructions).ask(@message.content)
-      @chat.generate_title_from_first_message if @chat.title == "Untitled"
+      @chat.generate_title_from_first_message if @chat.title == "AI assistant"
       respond_to do |format|
         format.turbo_stream
         format.html { redirect_to chat_path(@chat) }

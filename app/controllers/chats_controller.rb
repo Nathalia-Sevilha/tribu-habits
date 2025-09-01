@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.new(title: "Untitled", model_id: "gpt-4o-mini")
+    @chat = Chat.new(title: "AI assistant", model_id: "gpt-4o-mini")
     authorize @chat
     @chat.user = current_user
     if @chat.save
