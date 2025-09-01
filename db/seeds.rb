@@ -37,7 +37,8 @@ communities = [
   { title: "📖 Reading" },
   { title: "🧘 Meditation" },
   { title: "🥗 Healthy Eating" },
-  { title: "🌱 Gardening" }
+  { title: "🌱 Gardening" },
+  { title: "🏅 General" }
 ]
 
 communities.each { |community| Community.create!(community) }

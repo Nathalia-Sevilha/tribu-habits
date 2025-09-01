@@ -12,6 +12,7 @@ class HabitsController < ApplicationController
   def new
     if params[:habit_id].present?
       @habit_title = Habit.find(params[:habit_id]).title
+      @habit_community = Habit.find(params[:habit_id]).community.title
       @habit = Habit.new
       @habit.title = @habit_title
       authorize @habit
@@ -23,8 +24,13 @@ class HabitsController < ApplicationController
 
   def create
     @habit = Habit.new(habit_params)
+    unless List.where(title: @habit.title).empty?
+      @list = List.where(title: @habit.title).first
+      @habit.community = Community.find(@list.community_id)
+    else
+      @habit.community = Community.find(8)
+    end
     @habit.user = current_user
-    # @habit.community = Community.first
     authorize @habit
     if @habit.save
       redirect_to @habit, notice: "Habit was successfully created."

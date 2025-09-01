@@ -7,14 +7,20 @@
           value: @habit.title,
           input_html: { class: 'form-input' } %>
       </div>
-    <% else %>
-    
-    <div class="form-group">
-        <%= form.input :title,
+
+      <%# <div class="form-group d-none">
+        <%= form.input :community,
           label: false,
-          placeholder: "Habit name",
+          value: @habit.community,
           input_html: { class: 'form-input' } %>
-    </div>
+      <%# </div> %>
+    <% else %>
+      <div class="form-group">
+          <%= form.input :title,
+            label: false,
+            placeholder: "Habit name",
+            input_html: { class: 'form-input' } %>
+      </div>
     <% end %>
 
     <div class="form-group">

@@ -1,8 +1,9 @@
 <div class="habits-container">
   <% if params[:habit_id].present? %>
     <h2><%= @habit_title %></h2>
+    <p> Community:  <%= @habit_community  %> </p>
   <% else %>
     <h2>Create your custom habit</h2>
   <% end %>
-    <%= render "form", habit: @habit %>
+  <%= render "form", habit: @habit %>
 </div>

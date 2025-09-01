@@ -8,10 +8,16 @@
     </p>
   </div>
 
+  <div class="my-3">
+    <p>Community
+    <%= link_to @habit.community.title, community_path(@habit.community), class: "btn send-btn" %> </p>
+  </div>
+
   <div class="habit-actions">
     <%= link_to edit_habit_path(@habit), class: "edit-link" do %>
       <i class="fas fa-edit"></i> Edit
     <% end %>
+
 
     <%= link_to habit_path(@habit),
         class: "delete-link",
