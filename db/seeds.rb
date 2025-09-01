@@ -58,6 +58,20 @@ habits = [
 habits.each { |habit| Habit.create!(habit) }
 puts "✅ Created #{Habit.count} habits"
 
+puts "Seeding lists..."
+lists = [
+  { title: "🚶 Walk", community: Community.first },
+  { title: "🏃 Run", community: Community.first },
+  { title: "🏋️ Workout", community: Community.second },
+  { title: "💧 Drink water", community: Community.third },
+  { title: "📖 Read a book", community: Community.fourth },
+  { title: "🧘 Meditation", community: Community.fifth },
+  { title: "🥗 Eat healthier", community: Community.offset(5).first },
+  { title: "🌱 Water the plants", community: Community.offset(6).first }
+]
+
+lists.each { |item| List.create!(item) }
+puts "✅ Created #{List.count} pre-existing habits"
 
 puts "Seeding posts..."
 posts = [

@@ -24,7 +24,7 @@ class HabitsController < ApplicationController
   def create
     @habit = Habit.new(habit_params)
     @habit.user = current_user
-    @habit.community = Community.first
+    # @habit.community = Community.first
     authorize @habit
     if @habit.save
       redirect_to @habit, notice: "Habit was successfully created."
@@ -54,7 +54,7 @@ class HabitsController < ApplicationController
 
   def preselect
     authorize Habit
-    @habits = Habit.all
+    @lists = List.all
   end
 
   private
