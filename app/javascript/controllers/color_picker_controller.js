@@ -4,7 +4,7 @@ export default class extends Controller {
   connect() {
     this.colorInput = this.element.querySelector('input[name="habit[color]"]')
     this.colorChoices = this.element.querySelectorAll('.color-choice')
-    
+
     this.colorChoices.forEach(choice => {
       choice.addEventListener('click', () => {
         // Remove selected class from all choices
