@@ -33,6 +33,8 @@ class MessagesController < ApplicationController
 
   PROMPT
 
+   WELCOME_MESSAGE = "👋 Hi there! I’m Habit Coach AI. What’s one goal or area of your life you’d like to improve? (e.g., sleep, focus, skin health, energy, fitness, mood)."
+
 
   def create
     @chat = Chat.find(params[:chat_id])
@@ -59,6 +61,13 @@ class MessagesController < ApplicationController
         format.html { render "chats/show", status: :unprocessable_entity }
       end
     end
+  end
+
+  def welcome_message(chat)
+    chat.messages.create!(
+      role: "assistant",
+      content: WELCOME_MESSAGE
+    )
   end
 
   private

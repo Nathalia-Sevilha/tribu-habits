@@ -9,13 +9,15 @@
 %>
 
 <div class="message-row <%= role %>">
-  <div class="avatar">
-    <% if role == "user" %>
-      <%= image_tag "user.svg", alt: "You" %>
-    <% else %>
-      <%= image_tag "stars.svg", alt: "AI" %>
-    <% end %>
-  </div>
+<div class="avatar">
+  <% if role == "user" %>
+    <%= image_tag message.chat.user.photo.attached? ? url_for(message.chat.user.photo) : "user.svg",
+                  class: "w-100 h-100 object-fit-cover", alt: "You" %>
+  <% else %>
+    <%= image_tag "stars.svg", class: "ai-comments-img", alt: "AI" %>
+  <% end %>
+</div>
+
 
   <div class="bubble card_style">
     <div class="content" style="color: var(--community-text-color);">
