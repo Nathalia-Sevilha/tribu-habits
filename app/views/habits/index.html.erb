@@ -7,7 +7,7 @@
         <button data-weekdays-target="button"
           data-action="click->weekdays#changeDay"
           data-day-name="<%= day.name %>"
-          class="day-default">
+          class="day-default <%= 'active' if day.name == @day.name %>">
           <%= "#{index + 1} <br> <span class='day-letters'>#{day.name.slice(0,3).upcase}</span>".html_safe %>
         </button>
       <% end %>
@@ -18,28 +18,30 @@
     <div class="progress-bar">2/4</div>
     <p class="progress-text">2 habits left to go!</p>
   </div>
-  <ul class="habits-list">
-    <% @habits.each do |habit| %>
-      <li class="habit-item">
-        <div class="habit-card" style="--habit-color: #<%= habit.color %>CC">
-          <%= link_to "", habit_path(habit), class: "card-link" %>
-          <div class="habit-card-content">
-            <h3 class="habit-card-title"><%= habit.title %></h3>
-            <div class="habit-streak">
-              <i class="fas fa-fire"></i>
-              <%= habit.streak %>
+  <turbo-frame id="habits-list">
+    <ul class="habits-list">
+      <% @habits.each do |habit| %>
+        <li class="habit-item">
+          <div class="habit-card" style="--habit-color: #<%= habit.color %>CC">
+            <%= link_to "", habit_path(habit), class: "card-link" %>
+            <div class="habit-card-content">
+              <h3 class="habit-card-title"><%= habit.title %></h3>
+              <div class="habit-streak">
+                <i class="fas fa-fire"></i>
+                <%= habit.streak %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="checkbox-container">
-          <input
+          <div class="checkbox-container">
+            <input
             type="checkbox"
             id="habit-<%= habit.id %>"
             class="checkbox-input"
             <%= 'checked'%>>
           <label for="habit-<%= habit.id %>" class="checkbox-label"></label>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </turbo-frame>
 </div>

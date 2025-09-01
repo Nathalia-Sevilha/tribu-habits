@@ -2,7 +2,7 @@ class HabitsController < ApplicationController
   before_action :set_habit, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    today_name = Date::DAYNAMES[Date.today.wday] # "Monday"
+    today_name = params[:day] || Date::DAYNAMES[Date.today.wday] # the day clicked or today
     @day = Day.find_by(name: today_name)
     @habits = policy_scope(Habit).joins(:days).where(days: { name: today_name })
   end
