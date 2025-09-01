@@ -2,7 +2,14 @@ class HabitsController < ApplicationController
   before_action :set_habit, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @habits = policy_scope(Habit)
+  @habits = policy_scope(Habit)
+  #Nathalia
+  @today = Day.find_by(name: Date.today.strftime("%A").downcase)
+  @day_habits = @today&.habits_for_user(current_user) || []
+  @completed_count = @today&.completed_habits_count(current_user) || 0
+  @total_count = @today&.total_habits_count(current_user) || 0
+  authorize Habit
+  # Nathalia
   end
 
   def show
