@@ -4,7 +4,10 @@
     <div class="date"><%= Date.today.strftime("%A, %B %d, %Y") %></div>
     <div data-controller="weekdays" class="mt-3 d-flex justify-content-between">
       <% Day.all.each_with_index do |day, index| %>
-        <button data-weekdays-target="button" class="day-default">
+        <button data-weekdays-target="button"
+          data-action="click->weekdays#changeDay"
+          data-day-name="<%= day.name %>"
+          class="day-default">
           <%= "#{index + 1} <br> <span class='day-letters'>#{day.name.slice(0,3).upcase}</span>".html_safe %>
         </button>
       <% end %>

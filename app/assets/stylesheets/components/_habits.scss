@@ -212,7 +212,7 @@ $success: #00c853;
   line-height: 1;
   justify-content: center;
   &.active {
-    background: linear-gradient(90deg, #ff9966, #ffcc33)
+    background: linear-gradient(90deg, #ff9966, #ffcc33);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // légère ombre pour “décoller”
     transform: scale(1.05); // bouton légèrement plus grand
     transition: all 0.2s;
