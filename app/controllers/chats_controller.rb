@@ -10,6 +10,7 @@ class ChatsController < ApplicationController
     authorize @chat
     @chat.user = current_user
     if @chat.save
+      MessagesController.new.welcome_message(@chat)
       redirect_to chat_path(@chat)
     else
       render :new, status: :unprocessable_entity
