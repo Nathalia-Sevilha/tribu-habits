@@ -1,19 +1,24 @@
+// app/javascript/controllers/color_picker_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = ["select", "swatch"]
+
   connect() {
-    this.colorInput = this.element.querySelector('input[name="habit[color]"]')
-    this.colorChoices = this.element.querySelectorAll('.color-choice')
-    
-    this.colorChoices.forEach(choice => {
-      choice.addEventListener('click', () => {
-        // Remove selected class from all choices
-        this.colorChoices.forEach(c => c.classList.remove('selected'))
-        // Add selected class to clicked choice
-        choice.classList.add('selected')
-        // Update hidden input value
-        this.colorInput.value = choice.dataset.color
-      })
-    })
+    // initialize preview on load
+    this.update()
+  }
+
+  update() {
+    // Expect values like "F09393" (no #)
+    const raw = this.hasSelectTarget ? this.selectTarget.value : ""
+    const hex = raw?.replace(/^#/, "")
+    const color = hex ? `#${hex}` : "transparent"
+
+    if (this.hasSwatchTarget) {
+      this.swatchTarget.style.background = color
+      this.swatchTarget.style.borderColor = hex ? color : "#ddd"
+    }
   }
 }
+
