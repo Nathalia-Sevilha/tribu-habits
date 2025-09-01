@@ -23,7 +23,7 @@
       <% @habits.each do |habit| %>
         <li class="habit-item">
           <div class="habit-card" style="--habit-color: #<%= habit.color %>CC">
-            <%= link_to "", habit_path(habit), class: "card-link" %>
+            <%= link_to "", habit_path(habit), class: "card-link", data: { turbo: false } %>
             <div class="habit-card-content">
               <h3 class="habit-card-title"><%= habit.title %></h3>
               <div class="habit-streak">
