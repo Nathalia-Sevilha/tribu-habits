@@ -163,43 +163,66 @@ $success: #00c853;
 }
 
 // Habit Show page enhancements
-  .habit-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+.habit-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 
-  .habit-info {
-    background-color: var(--habit-color);
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
+.habit-info {
+  background-color: var(--habit-color);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
 
-  .habit-streak {
-    font-size: 1.2rem;
-    color: var(--color-primary);
-    margin-top: 0.5rem;
-  }
+.habit-streak {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-top: 0.5rem;
+}
 
-  .habit-actions {
-    display: flex;
-    gap: 1rem;
-  }
+.habit-actions {
+  display: flex;
+  gap: 1rem;
+}
 
-  .habit-actions a {
-    text-decoration: none;
-    color: var(--color-secondary);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+.habit-actions a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-  .habit-actions a:hover {
-    text-decoration: underline;
+.habit-actions a:hover {
+  text-decoration: underline;
+}
+
+.day-default {
+  background-color: white;
+  color: black;
+  width: 45px;
+  border-radius: 15px;
+  height: 60px;
+  font-size: 14px;
+  border: 1px solid black;
+  line-height: 1;
+  justify-content: center;
+  &.active {
+    background: linear-gradient(90deg, #ff9966, #ffcc33);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // légère ombre pour “décoller”
+    transform: scale(1.05); // bouton légèrement plus grand
+    transition: all 0.2s;
+    font-weight: 700; // max bold
   }
+  
+}
+.day-letters {
+  font-size: 10px;
+  letter-spacing: 2px;
 
 .weekday-btn {
   display: inline-flex;

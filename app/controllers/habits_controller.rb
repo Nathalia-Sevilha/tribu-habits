@@ -2,7 +2,9 @@ class HabitsController < ApplicationController
   before_action :set_habit, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @habits = policy_scope(Habit)
+    today_name = Date::DAYNAMES[Date.today.wday] # "Monday"
+    @day = Day.find_by(name: today_name)
+    @habits = policy_scope(Habit).joins(:days).where(days: { name: today_name })
   end
 
   def show
@@ -53,8 +55,8 @@ class HabitsController < ApplicationController
   end
 
   def destroy
-    @habit.destroy
     authorize @habit
+    @habit.destroy
     redirect_to habits_path, notice: "Habit was successfully deleted.", status: :see_other
   end
 

@@ -20,13 +20,13 @@ gem "stimulus-rails"
 gem "ruby_llm"
 gem "devise"
 gem "pundit"
-gem "dotenv-rails"
 
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage
 gem "cloudinary", "~> 1.26"
 gem "activestorage-cloudinary-service"
+gem "ostruct"
 
 gem "image_processing", "~> 1.2"
 
