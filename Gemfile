@@ -27,6 +27,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Use Active Storage
 gem "cloudinary", "~> 1.26"
 gem "activestorage-cloudinary-service"
+gem "ostruct"
 
 gem "image_processing", "~> 1.2"
 
