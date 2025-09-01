@@ -2,6 +2,9 @@ class HabitsController < ApplicationController
   before_action :set_habit, only: [ :show, :edit, :update, :destroy ]
 
   def index
+      today = Date.today.wday # 0 = dimanche, 1 = lundi, etc.
+  @day = Day.find_by(wday: today) # suppose que Day a un champ `wday` (0-6)
+  @habits = @day.habits
     @habits = policy_scope(Habit)
   end
 
