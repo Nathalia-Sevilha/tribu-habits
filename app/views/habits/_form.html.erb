@@ -7,13 +7,6 @@
           value: @habit.title,
           input_html: { class: 'form-input' } %>
       </div>
-
-      <%# <div class="form-group d-none">
-        <%= form.input :community,
-          label: false,
-          value: @habit.community,
-          input_html: { class: 'form-input' } %>
-      <%# </div> %>
     <% else %>
       <div class="form-group">
           <%= form.input :title,
@@ -29,7 +22,7 @@
           placeholder: "Add a description",
           input_html: { class: 'form-input' } %>
     </div>
-    <div class="form-group color-section" data-controller="color-picker">
+    <div class="form-group color-section my-3" data-controller="color-picker">
       <p class="color-label">Pick a color for your habit</p>
       <div class="color-choices">
         <% %w[ F09393 F5B6F3 FFC7D0 FFDA9B E4ED97 C1F4DC ACDFEB ].each do |color| %>
@@ -43,7 +36,7 @@
       <%= form.input :color, as: :hidden %>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group mb-3">
       <p>Choose the days for this habit:</p>
     <%= hidden_field_tag "habit[day_ids][]", nil %>
 

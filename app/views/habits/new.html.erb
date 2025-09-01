@@ -1,9 +1,15 @@
-<div class="habits-container">
-  <% if params[:habit_id].present? %>
-    <h2><%= @habit_title %></h2>
-    <p> Community:  <%= @habit_community  %> </p>
-  <% else %>
-    <h2>Create your custom habit</h2>
-  <% end %>
-  <%= render "form", habit: @habit %>
+<div class="d-flex justify-content-center vh-100 mt-5 p-2">
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <div class="container-card p-4">
+        <% if params[:habit_id].present? %>
+          <h2 class="habit-title"><%= @habit_title %></h2>
+          <p> Community:  <%= @habit_community  %> </p>
+        <% else %>
+          <h2>Create your custom habit</h2>
+        <% end %>
+        <%= render "form", habit: @habit %>
+      </div>
+    </div>
+  </div>
 </div>
