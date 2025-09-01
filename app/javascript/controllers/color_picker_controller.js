@@ -1,10 +1,11 @@
+// app/javascript/controllers/color_select_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  connect() {
+   connect() {
     this.colorInput = this.element.querySelector('input[name="habit[color]"]')
     this.colorChoices = this.element.querySelectorAll('.color-choice')
-    
+
     this.colorChoices.forEach(choice => {
       choice.addEventListener('click', () => {
         // Remove selected class from all choices

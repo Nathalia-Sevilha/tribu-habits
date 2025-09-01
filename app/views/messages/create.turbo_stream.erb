@@ -4,13 +4,16 @@
   <% end %>
 <% end %>
 
+<%= turbo_stream.append "messages" do %>
+  <%= render "messages/messages", messages: @chat.messages.last(2) %>
+<% end %>
+
 <%= turbo_stream.replace "new_message" do %>
   <%= render "messages/form", chat: @chat, message: Message.new %>
 <% end %>
 
-
-<%= turbo_stream.append "messages" do %>
-  <%= render partial: "chats/message", locals: { message: @message } %>
+<%= turbo_stream.after "messages-end" do %>
+  <script>
+    document.getElementById("messages-end").scrollIntoView({ behavior: "smooth" });
+  </script>
 <% end %>
-
-<%= turbo_stream.replace "chat-input", "" %>

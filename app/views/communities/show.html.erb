@@ -14,7 +14,11 @@
         <div class="card_style">
         <div class="d-flex flex-row justify-content-between align-items-center mb-2">
           <div class="d-flex flex-row justify-content-start align-items-center">
-            <div style="border-radius: 50%; height: 40px; width: 40px; background: var(--orange);"></div>
+              <% if post.user&.photo&.attached? %>
+                <%= cl_image_tag post.user.photo.key, class: "user-posts-img" %>
+              <% else %>
+                <%= image_tag "user-avatar.svg", class: "user-posts-img" %>
+              <% end %>
             <h5  class="m-0 mx-2 fw-normal h6" style="color: var(--community-title-color);"><%= post.user.username %> <%# here should be post writer username %></h5>
           </div>
           <div class="d-flex flex-row align-items-center">

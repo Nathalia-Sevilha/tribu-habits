@@ -32,6 +32,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   padding-bottom: 73px;
+  height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -101,6 +102,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-background);
 }
 
+// user avatar in profile
 .user-avatar {
   width: 120px;
   height: 120px;
@@ -152,4 +154,21 @@ h1, h2, h3, h4, h5, h6 {
   width: 90px;
   background: var(--community-title-color);
   text-decoration: none;
+}
+
+// user avatar in posts and comments
+.user-posts-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.user-comments-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }

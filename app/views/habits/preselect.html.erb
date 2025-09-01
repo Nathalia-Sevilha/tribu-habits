@@ -2,9 +2,9 @@
 <%= link_to "Add custom habit", new_habit_path, class: "btn btn-large m-3 p-3" %>
 
 <div>
-  <% @habits.each do |habit| %>
-    <%= link_to new_habit_path(habit_id: habit.id), class: "community_card d-flex justify-content-between align-items-center m-3" do %>
-      <%= habit.title %>
+  <% @lists.each do |item| %>
+    <%= link_to new_habit_path(habit_id: item.id), class: "community_card d-flex justify-content-between align-items-center m-3" do %>
+      <%= item.title %>
       <p>+</p>
     <% end %>
   <% end %>

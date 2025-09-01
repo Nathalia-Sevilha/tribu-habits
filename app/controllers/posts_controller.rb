@@ -1,16 +1,15 @@
 class PostsController < ApplicationController
 before_action :set_post, only: [ :show, :edit, :update, :destroy ]
-before_action :set_community, only: [:index, :new, :create, :show, :destroy]
+before_action :set_community, only: [ :index, :new, :create, :show, :destroy ]
 
   def index
     @posts = policy_scope(Post)
   end
 
   def show
-    @comments = @post.comments.includes(:user).order(created_at: :asc)
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
     @comment = Comment.new
     authorize @post
-
   end
 
   def new
