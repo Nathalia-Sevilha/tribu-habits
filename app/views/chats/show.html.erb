@@ -1,3 +1,8 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "chat", "data-turbo-track": "reload" %>
+<% end %>
+
+
 <div class="chat-page">
 
   <!-- Header -->
@@ -15,40 +20,33 @@
     </div>
   </header>
 
-  <!-- Messages -->
-  <section class="chat-body">
-    <div id="messages" class="container chat-messages">
-      <% if @chat.messages.any? %>
-        <% @chat.messages.each do |message| %>
-          <%= render "message", message: message %>
-        <% end %>
-      <% else %>
-        <div class="empty-state card_style">
-          <h2 class="h6 mb-2 chat-title">Say hello 👋</h2>
-          <p class="m-0 chat-text">Ask a question to get started.</p>
-        </div>
-      <% end %>
-      <div id="messages-end"></div>
-    </div>
-  </section>
 
-  <!-- Composer -->
-  <footer class="chat-composer">
+  <section class="chat-body">
+    <%#= turbo_stream_from @chat %>
+    <div class="container mt-3" id='messages'>
+      <%= render 'messages/messages' , messages: @chat.messages.visible%>
+    </div>
+</section>
+
+<footer class="chat-composer">
     <div class="container">
       <%= form_with model: [@chat, @message], html: { id: "message-form", autocomplete: "off" } do |f| %>
         <div class="composer-inner card_style">
-          <%= f.text_area :content,
+          <div class="composer-textarea">
+            <%= f.text_area :content,
                 rows: 1,
                 placeholder: "Type your message…",
-                class: "form-control composer-input",
+                class: "form-control",
                 id: "chat-input",
                 data: { behavior: "autogrow" } %>
+          </div>
 
-          <button type="submit" class="btn btn-primary send-btn" id="send-btn" title="Send (⌘/Ctrl + Enter)">
-            <i class="fa-solid fa-paper-plane"></i>
-            <span class="ms-1 d-none d-sm-inline">Send</span>
-
-          </button>
+          <div class="composer-actions">
+            <button type="submit" class="btn btn-primary" id="send-btn" title="Send (⌘/Ctrl + Enter)">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span class="ms-1 d-none d-sm-inline">Send</span>
+            </button>
+          </div>
         </div>
       <% end %>
     </div>
