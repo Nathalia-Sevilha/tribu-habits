@@ -11,19 +11,20 @@
       <div class="form-group">
           <%= form.input :title,
             label: false,
-            placeholder: "Habit name",
-            input_html: { class: 'form-input' } %>
+            placeholder: "e.g. Yoga, Journal, Study Spanish",
+            input_html: { class: 'form-control' } %>
       </div>
     <% end %>
 
+      <p class="my-3">Set your goal</p>
     <div class="form-group">
       <%= form.input :description,
           label: false,
-          placeholder: "Add a description",
-          input_html: { class: 'form-input' } %>
+          placeholder: "e.g. 45 minutes, 3 pages, 20 new words",
+          input_html: { class: 'form-control' } %>
     </div>
        <div class="form-group color-section my-3" data-controller="color-picker">
-      <p class="color-label">Pick a color for your habit</p>
+      <p class="color-label">Pick a color for your habit:</p>
       <div class="color-choices">
         <% %w[ F09393 F5B6F3 FFC7D0 FFDA9B E4ED97 C1F4DC ACDFEB ].each do |color| %>
           <div
@@ -38,7 +39,7 @@
 
   </div>
  <div class="form-group mb-3">
-  <p>Choose the days for this habit:</p>
+  <p>Pick the days for your habit:</p>
   <div class="d-flex flex-wrap gap-2">
     <%= hidden_field_tag "habit[day_ids][]", nil %>
 
