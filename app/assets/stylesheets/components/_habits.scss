@@ -261,6 +261,13 @@ $success: #00c853;
   font-size: 11px;
   cursor: pointer;
   transition: all 0.3s;
+  background-color: var(--color-white);
+
+  &.weekday-btn.selected {
+  background-color: orange;
+  border-color: orange;
+  color: white;
+  }
 }
 
 input[type="checkbox"].d-none:checked + .weekday-btn {
