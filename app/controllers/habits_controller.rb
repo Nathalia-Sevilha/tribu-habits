@@ -16,8 +16,8 @@ class HabitsController < ApplicationController
 
   def new
     if params[:habit_id].present?
-      @habit_title = Habit.find(params[:habit_id]).title
-      @habit_community = Habit.find(params[:habit_id]).community.title
+      @habit_title = List.find(params[:habit_id]).title
+      @habit_community = List.find(params[:habit_id]).community.title
       @habit = Habit.new
       @habit.title = @habit_title
       authorize @habit
