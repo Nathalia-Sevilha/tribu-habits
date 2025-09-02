@@ -59,14 +59,6 @@ habits = [
 habits.each { |habit| Habit.create!(habit) }
 puts "✅ Created #{Habit.count} habits"
 
-puts "Seeding day_habits..."
-Habit.all.each do |habit|
-  Day.all.each do |day|
-    # Crée un DayHabit pour chaque jour et chaque habit
-    DayHabit.find_or_create_by!(habit: habit, day: day, done: false)
-  end
-end
-puts "✅ Created #{DayHabit.count} day_habits"
 
 puts "Seeding lists..."
 lists = [
@@ -124,3 +116,13 @@ days.each do |day|
   Day.find_or_create_by!(name: day)
 end
 puts "✅ Created #{Day.count} days"
+
+puts "Seeding day_habits..."
+Habit.all.each do |habit|
+  # Randomly assign days to each habit
+  assigned_days = Day.order("RANDOM()").limit(rand(1..7))
+  assigned_days.each do |day|
+    DayHabit.find_or_create_by!(day: day, habit: habit)
+  end
+end
+puts "✅ Created #{DayHabit.count} day_habits"
