@@ -4,7 +4,7 @@ class HabitsController < ApplicationController
   def index
     today_name = params[:day] || Date::DAYNAMES[Date.today.wday]
     @day = Day.find_by(name: today_name)
-    @habits = policy_scope(Habit).joins(:days).where(days: { name: today_name })
+    @habits = policy_scope(Habit).joins(:days).where(days: { name: today_name }).order(created_at: :desc)
     @total_count = @habits.count
     @completed_count = DayHabit.where(habit_id: @habits.pluck(:id), day_id: @day.id, done: true).count
     @completion_percentage = @total_count > 0 ? ((@completed_count.to_f / @total_count) * 100).round : 0
@@ -66,6 +66,26 @@ class HabitsController < ApplicationController
   def preselect
     authorize Habit
     @lists = List.all
+  end
+
+  def toggle_done
+    authorize Habit
+    habit = Habit.find(params[:habit_id])
+    day = Day.find(params[:day_id])
+
+    day_habit = DayHabit.find_or_initialize_by(habit: habit, day: day)
+    day_habit.done = !day_habit.done
+    day_habit.save!
+
+    # @day = day
+    # @habits = policy_scope(Habit).joins(:days).where(days: { name: day.name })
+    # @total_count = @habits.count
+    # @completed_count = DayHabit.where(habit_id: @habits.pluck(:id), day_id: @day.id, done: true).count
+    # @completion_percentage = @total_count > 0 ? ((@completed_count.to_f / @total_count) * 100).round : 0
+
+    # render :index, status: :ok
+
+    redirect_to habits_path(day: day.name), notice: "Habit status updated."
   end
 
   private

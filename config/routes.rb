@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :habits do
     collection do
       get "preselect"
+      patch "toggle_done"
     end
   end
 
