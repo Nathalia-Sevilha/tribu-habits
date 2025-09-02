@@ -6,10 +6,11 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.new(title: "Untitled", model_id: "gpt-4o-mini")
+    @chat = Chat.new(title: "AI assistant", model_id: "gpt-4o-mini")
     authorize @chat
     @chat.user = current_user
     if @chat.save
+      MessagesController.new.welcome_message(@chat)
       redirect_to chat_path(@chat)
     else
       render :new, status: :unprocessable_entity

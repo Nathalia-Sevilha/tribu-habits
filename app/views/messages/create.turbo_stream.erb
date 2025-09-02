@@ -12,8 +12,4 @@
   <%= render "messages/form", chat: @chat, message: Message.new %>
 <% end %>
 
-<%= turbo_stream.after "messages-end" do %>
-  <script>
-    document.getElementById("messages-end").scrollIntoView({ behavior: "smooth" });
-  </script>
-<% end %>
+

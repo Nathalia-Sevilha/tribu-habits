@@ -25,6 +25,7 @@
   background: rgba(255, 165, 0, 0.12);
   color: var(--orange);
   margin-left: 6px;
+
 }
 
 /* Messages */
@@ -83,6 +84,7 @@
 .message-row.user .bubble {
   background: rgba(255, 165, 0, 0.12); /* subtle user tint */
   border: 1px solid rgba(255, 165, 0, 0.25);
+  text-align: end;
 }
 
 /* Meta */
