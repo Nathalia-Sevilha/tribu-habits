@@ -75,6 +75,12 @@ class HabitsController < ApplicationController
 
     day_habit = DayHabit.find_or_initialize_by(habit: habit, day: day)
     day_habit.done = !day_habit.done
+    if day_habit.done
+      habit.increment(:streak)
+    else
+      habit.decrement(:streak) if habit.streak > 0
+    end
+    habit.save!
     day_habit.save!
 
     # @day = day
