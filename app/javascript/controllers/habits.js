@@ -14,11 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
       })
       .then(response => response.json())
       .then(data => {
-        // Update progress bar width
+
         const progressBar = document.getElementById("progress-bar");
         progressBar.style.width = data.percent + "%";
 
-        // Update text
         const progressText = document.getElementById("progress-text");
         const remainingText = document.getElementById("remaining-text");
 
