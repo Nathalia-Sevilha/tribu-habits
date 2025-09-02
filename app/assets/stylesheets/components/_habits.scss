@@ -254,9 +254,9 @@ $success: #00c853;
   background-color: var(--color-white);
 
   &.weekday-btn.selected {
-  background-color: orange;
-  border-color: orange;
-  color: white;
+    background-color: orange;
+    border-color: orange;
+    color: white;
   }
 }
 input[type="checkbox"].d-none:checked + .weekday-btn {
