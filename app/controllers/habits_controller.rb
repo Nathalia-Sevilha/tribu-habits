@@ -2,9 +2,12 @@ class HabitsController < ApplicationController
   before_action :set_habit, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    today_name = params[:day] || Date::DAYNAMES[Date.today.wday] # the day clicked or today
+    today_name = params[:day] || Date::DAYNAMES[Date.today.wday]
     @day = Day.find_by(name: today_name)
     @habits = policy_scope(Habit).joins(:days).where(days: { name: today_name })
+    @total_count = @habits.count
+    @completed_count = DayHabit.where(habit_id: @habits.pluck(:id), day_id: @day.id, done: true).count
+    @completion_percentage = @total_count > 0 ? ((@completed_count.to_f / @total_count) * 100).round : 0
   end
 
   def show

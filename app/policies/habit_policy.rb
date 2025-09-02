@@ -3,6 +3,10 @@ class HabitPolicy < ApplicationPolicy
     true
   end
 
+  def index?
+    user.present?
+  end
+
   def new?
     true
   end
@@ -18,7 +22,7 @@ class HabitPolicy < ApplicationPolicy
   def update?
     true
   end
-  
+
   def destroy?
     true
   end
