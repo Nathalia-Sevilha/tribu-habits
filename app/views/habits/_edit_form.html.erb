@@ -10,12 +10,14 @@
         </ul>
       </div>
     <% end %>
+
     <div class="form-fields">
       <div class="form-group">
         <%= form.input :description,
             label: "Edit your goal:",
             input_html: { class: 'form-control my-3' } %>
       </div>
+
       <div class="form-group" data-controller="color-picker">
         <label>Edit the color for this habit:</label>
         <%= form.input :color, as: :hidden %>
@@ -30,26 +32,22 @@
         </div>
       </div>
     </div>
+
     <div class="form-group mb-3">
       <p>Edit the days for this habit:</p>
       <div class="d-flex flex-wrap gap-2">
-      <%= hidden_field_tag "habit[day_ids][]", nil %>
-
-      <% Day.all.each do |day| %>
-      <%= check_box_tag "habit[day_ids][]", day.id, @habit.days.include?(day), id: "day_#{day.id}", class: "d-none" %>
-      <label for="day_<%= day.id %>" class="weekday-btn">
-        <%= day.name.first(3).upcase %>
-      </label>
-    <% end %>
-    </div>
-     </div>
-    <div class="form-actions my-3">
-      <%= form.button :submit, "Update Habit", class: "btn btn-small" %>
-  <% end %>
-    </div>
-      <div class="habit-actions">
-      <%= link_to habits_path, class: "back-link" do %>
-        <i class="fas fa-arrow-left"></i> Back
-      <% end %>
+        <%= hidden_field_tag "habit[day_ids][]", nil %>
+        <% Day.all.each do |day| %>
+        <%= check_box_tag "habit[day_ids][]", day.id, @habit.days.include?(day), id: "day_#{day.id}", class: "d-none" %>
+        <label for="day_<%= day.id %>" class="weekday-btn">
+          <%= day.name.first(3).upcase %>
+        </label>
+        <% end %>
       </div>
+    </div>
+
+    <div class="form-actions mt-3">
+      <%= form.button :submit, "Update Habit", class: "btn btn-small" %>
+    </div>
+  <% end %>
 </div>
