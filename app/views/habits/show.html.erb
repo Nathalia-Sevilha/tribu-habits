@@ -3,22 +3,28 @@
 <div class="d-flex justify-content-center vh-100 mt-5 p-2">
   <div class="row">
     <div class="col-12 mx-auto">
-<div class="container-card p-4">
-  <h1 class="habit-title"><%= @habit.title %></h1>
 
+<div class="community_card p-4">
+  <h1 class="habit-title"><%= @habit.title %></h1>
  <%= link_to community_path(@habit.community), class: "text-decoration-none" do %>
-  <div class="form-control my-3">
+  <div class="form-control mt-3">
     Community: <%= @habit.community.title %>
   </div>
 <% end %>
 
-    <p>Your goal: <%= @habit.description %></p>
-    <p class="habit-streak">
+<div class="my-3">
+    <p class="habit-streak ">⭐Your goal:</p> <%= @habit.description %></p>
+    </div>
+
+
+
+    <p class="habit-streak my-3">
       <i class="fas fa-fire"></i> Streak: <%= @habit.streak %> days
     </p>
 
-    <div class="form-group mb-3">
-  <p>Days for this habit:</p>
+
+    <div class="mb-3">
+  <p class="mb-1">Days for this habit:</p>
   <div class="d-flex flex-wrap gap-2">
     <% Day.all.each do |day| %>
       <% selected = @habit.days.include?(day) %>
@@ -44,4 +50,5 @@
       </div>
     </div>
   </div>
+ </div>
 </div>
