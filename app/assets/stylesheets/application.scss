@@ -53,12 +53,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn {
   display: inline-block;
-  border: none;
+  border: none !important;
   padding: 10px 25px;
-  border-radius: 12px;
   background: linear-gradient(90deg, #ff9966, #ffcc33);
   color: black;
   font-size: 14px;
+  font-weight: 600 !important;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -68,6 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-small {
   width: 128px;
   font-size: 12px;
+  font-weight: 600 !important;
 }
 
 .btn-large {
@@ -75,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 16px;
   padding: 12px 30px;
   margin: 0 auto;
+  font-weight: 600 !important;
 }
 
 .card_style {
@@ -142,18 +144,19 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--orange);
   height: 40px;
   border-radius: 10px;
-  border: none;
+  border: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  // font-weight: 600;
+  font-weight: 600 !important;
 }
 
 .btn_cancel{
   width: 90px;
   background: var(--community-title-color);
   text-decoration: none;
+  font-weight: 600 !important;
 }
 
 // user avatar in posts and comments
