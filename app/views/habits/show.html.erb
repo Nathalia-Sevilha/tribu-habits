@@ -1,32 +1,47 @@
-<div class="habits-container">
+ <%= render partial: "shared/header",  locals: { zone: @community, title: "Habit Overview"}  %>
+
+<div class="d-flex justify-content-center vh-100 mt-5 p-2">
+  <div class="row">
+    <div class="col-12 mx-auto">
+<div class="container-card p-4">
   <h1 class="habit-title"><%= @habit.title %></h1>
 
-  <div class="habit-info">
-    <p><%= @habit.description %></p>
-    <p class="habit-streak">
-      <i class="fas fa-fire"></i> Streak: <%= @habit.streak %>
-    </p>
+ <%= link_to community_path(@habit.community), class: "text-decoration-none" do %>
+  <div class="form-control my-3">
+    Community: <%= @habit.community.title %>
   </div>
+<% end %>
 
-  <div class="my-3">
-    <p>Community
-    <%= link_to @habit.community.title, community_path(@habit.community), class: "btn send-btn" %> </p>
+    <p>Your goal: <%= @habit.description %></p>
+    <p class="habit-streak">
+      <i class="fas fa-fire"></i> Streak: <%= @habit.streak %> days
+    </p>
+
+    <div class="form-group mb-3">
+  <p>Days for this habit:</p>
+  <div class="d-flex flex-wrap gap-2">
+    <% Day.all.each do |day| %>
+      <% selected = @habit.days.include?(day) %>
+      <div class="weekday-btn <%= 'selected' if selected %>">
+        <%= day.name.first(3).upcase %>
+      </div>
+    <% end %>
   </div>
+</div>
+
 
   <div class="habit-actions">
     <%= link_to edit_habit_path(@habit), class: "edit-link" do %>
-      <i class="fas fa-edit"></i> Edit
+      <i class="fas fa-edit"></i>
     <% end %>
-
 
     <%= link_to habit_path(@habit),
         class: "delete-link",
         data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this habit?" } do %>
-      <i class="fas fa-trash"></i> Delete
+      <i class="fas fa-trash"></i>
     <% end %>
-
-    <%= link_to habits_path, class: "back-link" do %>
-      <i class="fas fa-arrow-left"></i> Back
-    <% end %>
+  </div>
+      </div>
+    </div>
   </div>
 </div>
