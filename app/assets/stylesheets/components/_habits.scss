@@ -259,3 +259,8 @@ $success: #00c853;
   color: white;
   }
 }
+input[type="checkbox"].d-none:checked + .weekday-btn {
+  background-color: orange;
+  border-color: orange;
+  color: white;
+}
