@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 before_action :set_post, only: [ :show, :edit, :update, :destroy ]
-before_action :set_community, only: [ :index, :new, :create, :show, :destroy ]
+before_action :set_community, only: [ :index, :new, :create, :show, :destroy, :edit, :update ]
 
   def index
     @posts = policy_scope(Post)
@@ -35,7 +35,7 @@ before_action :set_community, only: [ :index, :new, :create, :show, :destroy ]
   def update
     authorize @post
     if @post.update(post_params)
-      redirect_to @post, notice: "Post was successfully updated."
+      redirect_to community_path(@community)
     else
       render :edit, status: :unprocessable_entity
     end
