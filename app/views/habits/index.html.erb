@@ -33,6 +33,22 @@
       <p>No habits for today.</p>
     <% end %>
   </div>
+   <!-- Title / View all btn -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+    <!-- if we are in today day, title : Today's Habits, elsif day before today ,title : Yesterday's Habits..., elsif day after today , title : Tomorrow's Habits... else, title : Thrusday's Habits... -->
+      <h2 class="section-title mb-0">
+        <% if @day == Day.find_by(name: Date.today.strftime("%A")) %>
+          Today's Habits
+        <% elsif @day == Day.find_by(name: (Date.today - 1).strftime("%A")) %>
+          Yesterday's Habits
+        <% elsif @day == Day.find_by(name: (Date.today + 1).strftime("%A")) %>
+          Tomorrow's Habits
+        <% else %>
+          <%= @day.name %>'s Habits
+        <% end %>
+      </h2>
+      <%= link_to "View All", habits_path, class: "btn" %>
+    </div>
     <!-- Habits List -->
     <ul class="habits-list">
       <% @habits.each do |habit| %>
