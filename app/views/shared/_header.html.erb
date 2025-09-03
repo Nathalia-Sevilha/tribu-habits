@@ -1,9 +1,7 @@
 <section class="px-4 d-flex justify-content-start align-items-center shadow-sm bg-white chat-header" style="height:70px;">
-  <% if local_assigns[:back] %>
     <a href="javascript:history.back()" class="text-dark text-decoration-none me-2">
       <i class="fa-solid fa-angle-left"></i>
     </a>
-  <% end %>
 
   <div class="d-flex align-items-center gap-2">
     <% if local_assigns[:icon].present? %>
