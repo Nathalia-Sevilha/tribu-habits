@@ -1,0 +1,33 @@
+<%= render partial: "shared/header", locals: { zone: @habits, title: "Habits" } %>
+<div class="container mt-4">
+  <h2 class="mb-3">This Week’s Habits</h2>
+  <div class="row">
+    <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-header bg-light text-center fw-bold text-uppercase">
+            <%= day %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <% day_habits = @habits.select { |habit| habit.day_habits.any? { |dh| dh.day.name == day } } %>
+            <% if day_habits.any? %>
+              <% day_habits.each do |habit| %>
+                <% habit.day_habits.select { |dh| dh.day.name == day }.each do |dh| %>
+                  <ul class="habits-list">
+                    <li class="habit-item">
+                      <div class="habit-card habit-card-week" style="--habit-color: #<%= habit.color %>CC">
+                        <%= link_to "", habit_path(habit), class: "card-link", data: { turbo: false } %>
+                        <h3 class="habit-card-title fw-normal"><%= habit.title %></h3>
+                      </div>
+                    </ul>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <li class="list-group-item text-muted">No habits</li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

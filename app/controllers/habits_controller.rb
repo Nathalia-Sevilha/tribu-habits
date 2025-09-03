@@ -69,6 +69,11 @@ class HabitsController < ApplicationController
     @user_habits = current_user.habits
   end
 
+  def view_all
+    @habits = policy_scope(Habit).order(created_at: :desc)
+    authorize Habit
+  end
+
   def toggle_done
     authorize Habit
     habit = Habit.find(params[:habit_id])
