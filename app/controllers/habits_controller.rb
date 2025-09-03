@@ -33,7 +33,7 @@ class HabitsController < ApplicationController
       @list = List.where(title: @habit.title).first
       @habit.community = Community.find(@list.community_id)
     else
-      @habit.community = Community.find(8)
+      @habit.community = Community.last
     end
     @habit.user = current_user
     authorize @habit
