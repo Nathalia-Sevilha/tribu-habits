@@ -5,20 +5,32 @@
     <div class="col-12 mx-auto">
       <div class="community_card">
 
-        <div class="d-flex justify-content-between align-items-start">
-          <h1 class="habit-title"><%= @habit.title %></h1>
-          <div class="habit-actions">
-            <%= link_to edit_habit_path(@habit), class: "edit-link" do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
+       <div class="d-flex justify-content-between align-items-start">
+        <h1 class="habit-title"><%= @habit.title %></h1>
 
-            <%= link_to habit_path(@habit),
-                class: "delete-link",
-                data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this habit?" } do %>
-              <i class="fas fa-trash"></i>
-            <% end %>
+          <div class="dropdown">
+            <button
+              class="bg-white px-2 btn-sm btn-light border-0"
+              type="button"
+              id="dropdown"<%= @habit.id %>"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu<%= @habit.id %>">
+              <li>
+                <%= link_to "Edit", edit_habit_path(@habit), class: "dropdown-item", data: { turbo: false } %>
+              </li>
+              <li>
+                <%= link_to "Delete",
+                    habit_path(@habit),
+                    class: "dropdown-item",
+                    data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this habit?" } %>
+              </li>
+            </ul>
           </div>
-        </div>
+      </div>
 
         <%= link_to community_path(@habit.community), class: "text-decoration-none" do %>
           <div class="form-control mt-3">
