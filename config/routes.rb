@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       get "preselect"
       patch "toggle_done"
+      get "view_all"
     end
   end
 

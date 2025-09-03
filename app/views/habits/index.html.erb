@@ -47,7 +47,7 @@
           <%= @day.name %>'s Habits
         <% end %>
       </h2>
-      <%= link_to "View All", habits_path, class: "btn" %>
+      <%= link_to "View All", view_all_habits_path, class: "", data: { turbo: false } %>
     </div>
     <!-- Habits List -->
     <ul class="habits-list">
