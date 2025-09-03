@@ -1,6 +1,22 @@
-<section class="px-4 d-flex justify-content-start align-items-center shadow-sm bg-white" style="height:70px;" >
-  <a href="javascript:history.back()" class="text-dark text-decoration-none me-2">
-  <i class="fa-solid fa-angle-left"></i>
-  </a>
-  <h1 class="m-0 mx-2 h5 fw-normal"><%= local_assigns[:title] || zone.title %> <%= "#{suffix}" if local_assigns[:suffix].present? %></h1>
+<section class="px-4 d-flex justify-content-start align-items-center shadow-sm bg-white chat-header" style="height:70px;">
+  <% if local_assigns[:back] %>
+    <a href="javascript:history.back()" class="text-dark text-decoration-none me-2">
+      <i class="fa-solid fa-angle-left"></i>
+    </a>
+  <% end %>
+
+  <div class="d-flex align-items-center gap-2">
+    <% if local_assigns[:icon].present? %>
+      <i class="<%= local_assigns[:icon] %>"></i>
+    <% end %>
+
+    <h1 class="m-0 mx-2 h5 fw-normal">
+      <%= local_assigns[:title] || (defined?(zone) ? zone.title : "Untitled") %>
+      <%= local_assigns[:suffix] if local_assigns[:suffix].present? %>
+    </h1>
+
+    <% if local_assigns[:chip].present? %>
+      <span class="model-chip"><%= local_assigns[:chip] %></span>
+    <% end %>
+  </div>
 </section>
