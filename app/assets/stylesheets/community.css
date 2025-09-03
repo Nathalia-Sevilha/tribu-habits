@@ -27,3 +27,51 @@
   color: var(--color-primary);
   background: transparent;
 }
+
+.btn-community {
+  font-size: 16px;
+  padding: 12px 30px;
+  margin: 0 auto;
+  font-weight: 600 !important;
+}
+
+/* Communitites tab */
+.tabs-container {
+  display: flex;
+  gap: 0;
+  margin: 16px;
+}
+
+.tabs-inner-container {
+  display: flex;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.tab-btn {
+  flex: 1 1 0;
+  padding: 1rem 0;
+  background: var(--color-white);
+  color: var(--color-primary);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-bottom 0.2s;
+}
+
+.tab-btn.active {
+  border: 1px solid orange;
+  background: rgba(255, 207, 119, 0.453);
+  font-weight: bold;
+}
+
+#user-tab.active {
+  border-radius: 12px 0 0 12px;
+}
+
+#all-tab.active {
+  border-radius: 0 12px 12px 0;
+}
