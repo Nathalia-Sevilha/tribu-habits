@@ -33,7 +33,7 @@ class HabitsController < ApplicationController
       @list = List.where(title: @habit.title).first
       @habit.community = Community.find(@list.community_id)
     else
-      @habit.community = Community.find(8)
+      @habit.community = Community.last
     end
     @habit.user = current_user
     authorize @habit
@@ -66,6 +66,7 @@ class HabitsController < ApplicationController
   def preselect
     authorize Habit
     @lists = List.all
+    @user_habits = current_user.habits
   end
 
   def toggle_done
