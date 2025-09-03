@@ -59,8 +59,6 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
   font-size: 14px;
   font-weight: 600 !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
   text-decoration: none;
   text-align: center;
 }
@@ -153,10 +151,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn_cancel{
-  width: 90px;
+  border-radius: 5px;
+  width: 128px;
   background: var(--community-title-color);
   text-decoration: none;
+  display: inline-block;
+  border: none !important;
+  padding: 6px 25px;
+  color: var(--color-white);
+  font-size: 16px !important;
   font-weight: 600 !important;
+  text-decoration: none;
+  text-align: center;
 }
 
 // user avatar in posts and comments
