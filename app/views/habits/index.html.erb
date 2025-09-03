@@ -39,14 +39,15 @@
         <li class="habit-item">
           <div class="habit-card" style="--habit-color: #<%= habit.color %>CC">
             <%= link_to "", habit_path(habit), class: "card-link", data: { turbo: false } %>
-            <div class="habit-card-content">
-              <h3 class="habit-card-title"><%= habit.title %></h3>
-              <div class="habit-streak">
+            <div class="habit-card-content d-flex align-items-center justify-content-between">
+              <h3 class="habit-card-title mb-0"><%= habit.title %></h3>
+              <div class="habit-streak d-flex align-items-center mt-0">
                 <i class="fas fa-fire"></i>
                 <%= habit.streak %>
               </div>
             </div>
           </div>
+
           <!-- Checkbox -->
           <div class="checkbox-container">
             <%= form_with url: toggle_done_habits_path, method: :patch, data: { turbo_frame: "habits-list" } do |f| %>
