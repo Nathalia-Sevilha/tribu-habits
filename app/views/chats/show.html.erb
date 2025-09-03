@@ -6,19 +6,8 @@
 <div class="chat-page">
 
   <!-- Header -->
-  <header class="chat-header">
-    <div class="container d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center gap-2">
-        <i class="fa-regular fa-message text-orange"></i>
-        <h1 class="chat-title h6 m-0">
-          <%= @chat.title.presence || "Untitled chat" %>
-        </h1>
-        <span class="model-chip">
-          <%= @chat.model_id.presence || "model" %>
-        </span>
-      </div>
-    </div>
-  </header>
+  <%= render "shared/header", icon: "fa-regular fa-message text-orange", title: "AI assistant", chip: @chat.model_id.presence || "model" %>
+
 
 
   <section class="chat-body">
@@ -26,29 +15,11 @@
     <div class="container mt-3" id='messages'>
       <%= render 'messages/messages' , messages: @chat.messages.visible%>
     </div>
-</section>
+  </section>
 
-<footer class="chat-composer">
-    <div class="container" >
-      <%= form_with model: [@chat, @message], html: { id: "message-form", autocomplete: "off" } do |f| %>
-        <div class="composer-inner card_style">
-          <div class="composer-textarea">
-            <%= f.text_area :content,
-                rows: 1,
-                placeholder: "Type your message…",
-                class: "form-control",
-                id: "chat-input",
-                data: { behavior: "autogrow" } %>
-          </div>
-
-          <div class="composer-actions">
-            <button type="submit" class="btn btn-primary" id="send-btn" title="Send (⌘/Ctrl + Enter)">
-              <i class="fa-solid fa-paper-plane"></i>
-              <span class="ms-1 d-none d-sm-inline">Send</span>
-            </button>
-          </div>
-        </div>
-      <% end %>
+  <footer class="chat-composer">
+    <div class="container">
+      <%= render "messages/form", chat: @chat, message: Message.new %>
     </div>
   </footer>
 </div>

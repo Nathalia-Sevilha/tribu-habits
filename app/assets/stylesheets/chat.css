@@ -87,12 +87,12 @@
   text-align: end;
 }
 
-/* Meta */
+
 .message-row .meta {
   margin-top: 0.25rem;
 }
 
-/* Composer */
+
 .chat-composer {
   position: sticky;
   bottom: 72px;

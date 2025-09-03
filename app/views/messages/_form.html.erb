@@ -1,5 +1,21 @@
+<div id="new_message">
+  <%= form_with model: [chat, message], html: { id: "message-form", autocomplete: "off" } do |f| %>
+    <div class="composer-inner card_style">
+      <div class="composer-textarea">
+        <%= f.text_area :content,
+            rows: 1,
+            placeholder: "Type your message…",
+            class: "form-control",
+            id: "chat-input",
+            data: { behavior: "autogrow" } %>
+      </div>
 
-  <%= simple_form_for([chat, message]) do |f| %>
-    <%= f.input :content,row:2, label: false, placeholder: 'Type a message...'%>
-    <%= f.submit "Send", class: 'btn btn-success' %>
+      <div class="composer-actions">
+        <button type="submit" class="btn btn-primary" id="send-btn" title="Send (⌘/Ctrl + Enter)">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span class="ms-1 d-none d-sm-inline">Send</span>
+        </button>
+      </div>
+    </div>
   <% end %>
+</div>
