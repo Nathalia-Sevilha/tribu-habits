@@ -36,7 +36,7 @@
    <!-- Title / View all btn -->
     <div class="d-flex justify-content-between align-items-center mb-3">
     <!-- if we are in today day, title : Today's Habits, elsif day before today ,title : Yesterday's Habits..., elsif day after today , title : Tomorrow's Habits... else, title : Thrusday's Habits... -->
-      <h2 class="section-title mb-0">
+      <h5 class="mb-0">
         <% if @day == Day.find_by(name: Date.today.strftime("%A")) %>
           Today's Habits
         <% elsif @day == Day.find_by(name: (Date.today - 1).strftime("%A")) %>
@@ -46,8 +46,13 @@
         <% else %>
           <%= @day.name %>'s Habits
         <% end %>
-      </h2>
-      <%= link_to "View All", view_all_habits_path, class: "", data: { turbo: false } %>
+      </h5>
+      <div>
+      <%= link_to view_all_habits_path, id: "link-view-all", data: { turbo: false } do %>
+        View All
+      <i class="fas fa-chevron-right ml-1"></i>
+      <% end %>
+      </div>
     </div>
     <!-- Habits List -->
     <ul class="habits-list">
@@ -55,14 +60,15 @@
         <li class="habit-item">
           <div class="habit-card" style="--habit-color: #<%= habit.color %>CC">
             <%= link_to "", habit_path(habit), class: "card-link", data: { turbo: false } %>
-            <div class="habit-card-content">
-              <h3 class="habit-card-title"><%= habit.title %></h3>
-              <div class="habit-streak">
+            <div class="habit-card-content d-flex align-items-center justify-content-between">
+              <h3 class="habit-card-title mb-0"><%= habit.title %></h3>
+              <div class="habit-streak d-flex align-items-center mt-0">
                 <i class="fas fa-fire"></i>
                 <%= habit.streak %>
               </div>
             </div>
           </div>
+
           <!-- Checkbox -->
           <div class="checkbox-container">
             <%= form_with url: toggle_done_habits_path, method: :patch, data: { turbo_frame: "habits-list" } do |f| %>

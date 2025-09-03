@@ -66,6 +66,7 @@ class HabitsController < ApplicationController
   def preselect
     authorize Habit
     @lists = List.all
+    @user_habits = current_user.habits
   end
 
   def view_all

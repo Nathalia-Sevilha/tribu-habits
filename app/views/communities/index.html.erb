@@ -1,9 +1,26 @@
- <%= render partial: "shared/header",  locals: { zone: @community, title: "Your Community"}  %>
+<%= render partial: "shared/header",  locals: { zone: @community, title: "Communities"}  %>
 
- <div class="pb-5">
-  <% @communities.each do |community| %>
-    <%= link_to community_path(community), class:" community_card text-center m-3" do %></p>
-      <%= community.title %>
+<div data-controller="tabs">
+  <div class="tabs-container">
+    <div class="tabs-inner-container">
+      <button data-tabs-target="userTab" id="user-tab" class="tab-btn active"> My Communities</button>
+      <button data-tabs-target="allTab" id="all-tab" class="tab-btn"> All Communities</button>
+    </div>
+  </div>
+
+  <div id="user-communities" class="tab-content pb-5" data-tabs-target="userContent">
+    <% @user_communities.each do |community| %>
+      <%= link_to community_path(community), class:"community_card text-center m-3" do %>
+        <%= community.title %>
+      <% end %>
     <% end %>
-  <% end %>
- </div>
+  </div>
+
+  <div id="all-communities" class="tab-content pb-5" style="display:none;" data-tabs-target="allContent">
+    <% @communities.each do |community| %>
+      <%= link_to community_path(community), class:"community_card text-center m-3" do %>
+        <%= community.title %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

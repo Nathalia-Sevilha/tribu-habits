@@ -3,6 +3,7 @@ class CommunitiesController < ApplicationController
 
   def index
     @communities = policy_scope(Community)
+    @user_communities = @communities.select { |c| c.users.include?(current_user) }
   end
 
 
