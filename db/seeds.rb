@@ -9,6 +9,7 @@
 #   end
 
 # Clear old data
+List.destroy_all
 Comment.destroy_all
 Post.destroy_all
 Habit.destroy_all
