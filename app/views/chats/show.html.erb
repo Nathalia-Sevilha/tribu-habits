@@ -12,7 +12,7 @@
 
   <section class="chat-body">
     <%#= turbo_stream_from @chat %>
-    <div class="container mt-3" id='messages'>
+    <div class="container mt-1" id='messages'>
       <%= render 'messages/messages' , messages: @chat.messages.visible%>
     </div>
   </section>
