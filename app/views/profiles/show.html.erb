@@ -1,6 +1,6 @@
 <%= render partial: "shared/header",  locals: { zone: @user, title: "Your Profile"}  %>
 <div class="card_style" style="color: var(--community-text-color);">
-  <div class="d-flex flex-column mt-4">
+  <div class="d-flex flex-column mt-2">
     <div class="d-flex flex-column align-items-center">
       <div class="d-flex flex-column align-items-center user-avatar">
         <% if @user.photo.attached? %>
@@ -19,26 +19,26 @@
     </div>
 
 
-    <h5 class="mt-4" style="color: var(--community-title-color)">Account setting</h5>
+    <h5 class="mt-2" style="color: var(--community-title-color)">Account setting</h5>
 
     <div class="d-flex flex-column">
-      <div class="card_style d-flex align-items-center">
+      <div class="card_style d-flex align-items-center mx-0 my-2">
         <i class="fa-solid fa-envelope"></i>
         <h6 class="fw-normal p-1 m-0 mx-1">Email</h6>
       </div>
 
-      <div class="card_style d-flex align-items-center">
+      <div class="card_style d-flex align-items-center mx-0 my-2">
         <i class="fa-solid fa-lock"></i>
         <h6 class="fw-normal p-1 m-0 mx-1">Password</h6>
       </div>
 
-      <div class="card_style d-flex align-items-center">
+      <div class="card_style d-flex align-items-center mx-0 my-2">
         <i class="fa-solid fa-globe"></i>
         <h6 class="fw-normal p-1 m-0 mx-1">Select Language</h6>
       </div>
 
       <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "text-decoration-none text-reset" do %>
-        <div class="card_style d-flex align-items-center">
+        <div class="card_style d-flex align-items-center mx-0 my-2">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
           <h6 class="fw-normal p-1 m-0 mx-1">Logout</h6>
         </div>
