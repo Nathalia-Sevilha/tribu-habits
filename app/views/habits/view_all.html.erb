@@ -1,11 +1,10 @@
-<%= render partial: "shared/header", locals: { zone: @habits, title: "Habits" } %>
+<%= render partial: "shared/header", locals: { zone: @habits, title: "This Week’s Habits" } %>
 <div class="container mt-4 mb-5">
-  <h2 class="mb-3">This Week’s Habits</h2>
   <div class="row">
     <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
       <div class="col-md-4 mb-4">
         <div class="card h-100">
-          <div class="card-header bg-light text-center fw-bold text-uppercase">
+          <div class="card-header bg-white text-center fw-bold text-uppercase shadow">
             <%= day %>
           </div>
           <ul class="list-group list-group-flush">

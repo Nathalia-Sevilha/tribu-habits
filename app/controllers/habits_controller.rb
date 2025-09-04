@@ -38,7 +38,7 @@ class HabitsController < ApplicationController
     @habit.user = current_user
     authorize @habit
     if @habit.save
-      redirect_to @habit, notice: "Habit was successfully created."
+      redirect_to @habit
     else
       render :new, status: :unprocessable_entity
     end
@@ -51,7 +51,7 @@ class HabitsController < ApplicationController
   def update
     if @habit.update(habit_params)
       authorize @habit
-      redirect_to @habit, notice: "Habit was successfully updated."
+      redirect_to @habit
     else
       render :edit, status: :unprocessable_entity
     end
@@ -60,7 +60,7 @@ class HabitsController < ApplicationController
   def destroy
     authorize @habit
     @habit.destroy
-    redirect_to habits_path, notice: "Habit was successfully deleted.", status: :see_other
+    redirect_to habits_path, status: :see_other
   end
 
   def preselect
@@ -97,7 +97,7 @@ class HabitsController < ApplicationController
 
     # render :index, status: :ok
 
-    redirect_to habits_path(day: day.name), notice: "Habit status updated."
+    redirect_to habits_path(day: day.name)
   end
 
   private
