@@ -17,7 +17,7 @@
       <%# -----------comments---------- %>
 
     <% @comments.each do |comment| %>
-    <div class="bg-gray rounded my-2 p-3" style="height: 110px">
+    <div class="bg-gray rounded my-2 p-3">
      <div class="d-flex flex-row justify-content-between mb-2 bg-gray" style="color: var(--community-text-color);">
         <div class="d-flex flex-row justify-content-start align-items-center">
           <% if comment.user&.photo&.attached? %>
