@@ -104,7 +104,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 0.5rem;
-  align-items: end;
+  align-items: center;
 }
 
 .composer-textarea .form-control {
@@ -119,4 +119,22 @@
 
 .composer-actions .btn {
   white-space: nowrap;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+    margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.card_style_chat {
+  background-color: var(--color-white);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0px 12px 16px 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
