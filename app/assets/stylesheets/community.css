@@ -6,7 +6,7 @@
 .community_card {
   display: block;              /* so the <a> behaves like a block */
   border-radius: 12px;
-  padding: 35px 20px;
+  padding: 25px 20px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   color: var(--color-primary); /* link text color */
   text-decoration: none;       /* remove underline */
