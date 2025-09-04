@@ -5,7 +5,7 @@
       <div class="container-card">
         <% if params[:habit_id].present? %>
           <h3 class="habit-title"><%= @habit_title %></h3>
-          <p class='form-control'> Community:  <%= @habit_community  %> </p>
+          <p class='form-control'> <strong>Community:</strong>  <%= @habit_community  %> </p>
         <% else %>
         <h3>New habit</h3>
           <p class="my-3"><span>Let’s name your habit</span></p>
