@@ -17,18 +17,20 @@
       <%# -----------comments---------- %>
 
     <% @comments.each do |comment| %>
-     <div class="d-flex flex-row justify-content-between mb-2" style="color: var(--community-text-color);">
+    <div class="bg-gray rounded my-2 p-3" style="height: 110px">
+     <div class="d-flex flex-row justify-content-between mb-2 bg-gray" style="color: var(--community-text-color);">
         <div class="d-flex flex-row justify-content-start align-items-center">
           <% if comment.user&.photo&.attached? %>
             <%= cl_image_tag comment.user.photo.key, class: "user-comments-img" %>
           <% else %>
             <%= image_tag "user-avatar.svg", class: "user-comments-img" %>
           <% end %>
-          <h5  class="m-0 mx-1 h6 fw-normal"><%= comment.user.username%> <%# here should be post writer username %></h5>
+
+           <h5  class="m-0 mx-1 h6 fw-normal text-black"><%= comment.user.username%></h5>
+            <small class="text-dark-gray px-2" style="font-size: 12px;"><%= time_ago_in_words(comment.created_at) %> ago</small>
           </div>
 
           <div class="d-flex flex-row align-items-center">
-            <small class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</small>
 
             <%# ------- delete comment ------- %>
             <% if comment.user == current_user %>
@@ -37,12 +39,13 @@
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit" class="trash_icon_button">
                   <i class="fa-solid fa-trash-can"></i>
-                  </button>
+                </button>
               </form>
             <% end %>
           </div>
           </div>
-    <p style="color: var(--community-text-color);"><%=comment.content %></p>
+         <p style="color: var(--community-text-color);"><%=comment.content %></p>
+       </div>
   <% end %>
       </div>
   </section>

@@ -1,6 +1,5 @@
 <div class=" community_style">
 
-
  <%= render partial: "shared/header",  locals: { zone: @community}  %>
 
   <section class="container" style="color: var(--community-text-color);">
@@ -27,7 +26,7 @@
 
             <% if post.user == current_user %>
               <div class="dropdown">
-                <button class="bg-white px-2 btn-sm btn-light border-0" type="button" id="dropdownMenu<%= post.id %>" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="bg-white btn-sm btn-light border-0" type="button" style="padding: 0 0 0 12px" id="dropdownMenu<%= post.id %>" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fa-solid fa-ellipsis-vertical"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu<%= post.id %>">
