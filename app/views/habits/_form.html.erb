@@ -1,4 +1,11 @@
 <%= simple_form_for(@habit) do |form| %>
+  <% if @habit.errors.any? %>
+    <div class="alert alert-danger mb-3">
+      <% @habit.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
   <div class="form-fields">
     <% if params[:habit_id].present? %>
       <div class="form-group d-none">
