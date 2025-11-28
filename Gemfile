@@ -24,7 +24,7 @@ gem "pundit"
 gem "dotenv-rails", groups: [ :development, :test ]
 
 # Use Active Storage
-gem "cloudinary", "~> 1.26"
+gem "cloudinary", "~> 2.4"
 gem "activestorage-cloudinary-service"
 gem "ostruct"
 
